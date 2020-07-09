@@ -66,9 +66,9 @@ $ npm run build
 
 ## Credit
 
-[**5R33CH4**](https://5r33ch4.github.io/) [Myself]  - For Coding and Building Pine
-**BrokenLlama** - For requesting me to Build this Project & for Building Webpage and UI Ideas
-& **You Supporters** - For Folking and Starring my Repositories !!!
+[**5R33CH4**](https://5r33ch4.github.io/) [Myself]  - For Coding and Building Pine <br>
+**BrokenLlama** - For requesting me to Build this Project & for Building Webpage and UI Ideas <br>
+& **You Supporters** - For Folking and Starring my Repositories !!! <br>
 
 
 ## LICENSE
