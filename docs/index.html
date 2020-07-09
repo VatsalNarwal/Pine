@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="theme-color" content="#1C1F21">
+        <title>Pine - A privacy-focused, chromium-based web browser with a greatfull user experience</title>
+        <link rel="shortcut icon" type="image/png" href="imgs/Pine/beta320.png"/>
+        <link rel="stylesheet" href="slick/slick.css">
+        <link rel="stylesheet" href="slick/slick-theme.css">
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/footer.css">
+        <link rel="stylesheet" href="css/app.css">
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/load.js"></script>
+        <script type="text/javascript" src="js/hamburger.js"></script>
+        <script type="text/javascript" src="slick/slick.min.js"></script>
+        <script type="text/javascript" src="js/slider.js"></script>
+        <script async defer src="https://buttons.github.io/buttons.js"></script>
+    </head>
+    <body>
+        <header id="header"></header>
+        <center class="main">
+            <div class="title">
+                <img src="imgs/Pine/icon256.png">
+                <label>Pine</label>
+                <span>Web Browser</span>
+            </div>
+            <div class="description">
+                Pine is a privacy-focused, cross-platform, chromium-based web browser<br>
+                with a greatfull user experience, built on top of Electron, JS and styled-components.<br>
+                It aims to be fast, private, beautiful and functional.
+            </div>
+            <div class="links">
+                <div class="button">
+                    <a class="blue" href="https://github.com/5R33CH4/Pine/releases/download/v3.1.0/Pine-Setup-3.1.0.exe">
+                        <img src="imgs/icons/download.png">
+                        <span>Windows</span>
+                    </a>
+                    <label>v3.1.0 (x64) .exe</label>
+                </div>
+                <div class="button">
+                    <a class="green" href="https://github.com/5R33CH4/Pine/releases/download/v3.0.3/Pine3.0.3-Linux.AppImage">
+                        <img src="imgs/icons/download.png">
+                        <span>Linux</span>
+                    </a>
+                    <label>v3.0.3 (x64) .appimg</label>
+                </div>
+                <div class="button">
+                    <a href="https://github.com/5R33CH4/arrowbrowser">GitHub</a>
+                    <label>GitHub</label>
+                </div>
+                <div class="button">
+                    <a href="https://discord.gg/9q4D8SJ">Chat</a>
+                    <label>Discord</label>
+                </div>
+                <div class="button">
+                    <a href="https://trello.com/b/cb5lXUgS/Pine">Planner</a>
+                    <label>Trello</label>
+                </div>
+                <div class="button">
+                    <a  class="red" href="https://www.patreon.com/5R33CH4">Donate</a>
+                    <label>Patreon</label>
+                </div>
+            </div>
+            <div class="screenshots">
+                <img src="imgs/Pine/duckduckgo.png">
+                <img src="imgs/Pine/overlay.png">
+                <img src="imgs/Pine/zoom.png">
+                <img src="imgs/Pine/search.png">
+                <img src="imgs/Pine/history.png">
+                <img src="imgs/Pine/settings.png">
+            </div>
+            <label class="main-title">Roadmap</label>
+            <div class="roadmap">
+                <div class="roadmap-dash"></div>
+                <div class="roadmap-item">
+                    <img src="imgs/Pine/beta200.png">
+                    <label class="roadmap-title">Beta 3.0</label><br>
+                    <label class="roadmap-desc">
+                        New bookmark manager<br>
+                        New interface<br>
+                        Overlay
+                    </label>
+                </div>
+                <div class="roadmap-line"></div>
+                <div class="roadmap-item">
+                    <img src="imgs/Pine/beta310.png">
+                    <label class="roadmap-title">Beta 3.1</label><br>
+                    <label class="roadmap-desc">
+                        Open with Pine<br>
+                        Themes 2.0<br>
+                        Tab groups
+                    </label>
+                </div>
+                <div class="roadmap-line"></div>
+                <div class="roadmap-item">
+                    <img src="imgs/Pine/beta320.png">
+                    <label class="roadmap-title">Beta 3.2</label><br>
+                    <label class="roadmap-desc">
+                        Adaptive interface<br>
+                        Incognito mode<br>
+                        Find in page
+                    </label>
+                </div>
+                <div class="roadmap-line"></div>
+                <div class="roadmap-arrow"></div>
+            </div>
+            <!-- <label class="main-title">Features</label>
+            <div class="features">
+                <div class="row">
+                    <div>
+                        <img src="imgs/features/customization.png">
+                        <label>Customization</label>
+                        <span>Settings for every taste.</span>
+                    </div>
+                    <div>
+                        <img src="imgs/features/colortabs.png">
+                        <label>Color tabs</label>
+                        <span>Adjust to the color of the page.</span>
+                    </div>
+                    <div>
+                        <img src="imgs/features/darkmode.png">
+                        <label>Dark mode</label>
+                        <span>Stylish and good for the eyes.</span>
+                    </div>
+                    <div>
+                        <img src="imgs/features/sidebar.png">
+                        <label>Sidebar</label>
+                        <span>No need to go to individual pages.</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <img src="imgs/features/bookmarks.png">
+                        <label>Bookmarks</label>  
+                        <span>Save your favorite sites.</span>
+                    </div>
+                    <div>
+                        <img src="imgs/features/history.png">
+                        <label>History</label>
+                        <span>Find what you lost.</span>
+                    </div>
+                    <div>
+                        <img src="imgs/features/multitabs.png">
+                        <label>Multitabs</label>
+                        <span>Work with everything at the same time.</span>
+                    </div>
+                    <div>
+                        <img src="imgs/features/updates.png">
+                        <label>Automatic updates</label>
+                        <span>Always on horseback.</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <img src="imgs/features/suggestions.png">
+                        <label>Search suggestions</label>
+                        <span>They will help you find what you are looking for.</span>
+                    </div>
+                    <div>
+                        <img src="imgs/features/findinpage.png">
+                        <label>Find in page</label>
+                        <span>Nothing is lost.</span>
+                    </div>
+                    <div>
+                        <img src="imgs/features/downloads.png">
+                        <label>Downloads</label>
+                        <span>Do not stop.</span>
+                    </div>
+                    <div>
+                        <img src="imgs/features/devtools.png">
+                        <label>Developer tools</label>
+                        <span>Habitual for everyone.</span>
+                    </div>
+                </div>
+            </div> -->
+            <!-- <label class="main-title">GitHub</label>
+            <div class="links">
+                <div class="button">
+                    <a href="https://github.com/5R33CH4/arrowbrowser/releases">Watch</a>
+                </div>
+                <div class="button">
+                    <a href="https://github.com/5R33CH4/arrowbrowser/releases">Star</a>
+                </div>
+                <div class="button">
+                    <a href="https://github.com/5R33CH4/arrowbrowser/releases">Releases</a>
+                </div> -->
+                <!-- <a href="https://github.com/5R33CH4/Pine/releases" title="Total downloads">
+                    <img src="https://img.shields.io/github/downloads/5R33CH4/Pine/total">
+                </a>
+                <a href="https://github.com/5R33CH4/Pine/releases" title="GitHub release (latest by date including pre-releases)">
+                    <img src="https://img.shields.io/github/v/release/5R33CH4/Pine?include_prereleases">
+                </a>
+                <a href="https://app.fossa.com/projects/git%2Bgithub.com%2F5R33CH4%2FPine?ref=badge_shield" title="FOSSA Status">
+                    <img src="https://app.fossa.com/api/projects/git%2Bgithub.com%2F5R33CH4%2FPine.svg?type=shield"/>
+                </a>
+                <a href="https://app.codacy.com/manual/Beelink/Pine/dashboard" title="Codacy grade">
+                    <img src="https://img.shields.io/codacy/grade/6fac6a3440d7480281c19780ed37ce30">
+                </a>
+                <a href="https://trello.com/b/cb5lXUgS/Pine" title="Trello roadmap">
+                    <img src="https://img.shields.io/badge/planner-trello-%230079BF">
+                </a>
+                <a href="https://discord.gg/9q4D8SJ" title="Discord channel">
+                    <img alt="Discord" src="https://img.shields.io/discord/625641944105877504?color=%237289DA&label=discord">
+                </a>
+                <a href="https://www.patreon.com/5R33CH4" title="Buy ma a coffee">
+                    <img alt="Patreon" src="https://img.shields.io/badge/donate-patreon-%23E85B46">
+                </a><br><br> -->
+                <!-- <div class="button">
+                    <a class="github-button" href="https://github.com/5R33CH4/Pine/subscription" data-icon="octicon-eye" data-size="large" data-show-count="true" aria-label="Watch 5R33CH4/Pine on GitHub">Watch</a>
+                </div>
+                <div class="button">
+                    <a class="github-button" href="https://github.com/5R33CH4/Pine" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star 5R33CH4/Pine on GitHub">Star</a>
+                </div>
+                <div class="button">
+                    <a class="github-button" href="https://github.com/5R33CH4/Pine/issues" data-icon="octicon-issue-opened" data-size="large" data-show-count="true" aria-label="Issue 5R33CH4/Pine on GitHub">Issue</a>
+                </div>
+            </div> -->
+            <label class="main-title">Release notes</label>
+            <div class="updates">
+                <div class="update show" class="show">
+                    <a href="https://github.com/5R33CH4/Pine/releases/tag/v3.1.0" title="GitHub release"><img src="imgs/icons/github.png"></a>
+                    <label class="date">November 9 / 2019</label>
+                    <button onclick="toggleUpdate(this)">
+                        <img src="imgs/icons/expand.png">
+                        <span>Beta v3.1.0 "Collections Update"</span>
+                    </button>
+                    <label class="text">
+                        Tabs:<br>
+                        - Added tab groups system<br>
+                        - Next-tab and prev-tab shortcuts are working for the overlay now<br>
+                        - Added tab cycling (Ctrl + Tab, Ctrl + Shift + Tab)<br>
+                        - Removed horizontal scrollbar<br><br>
+                        Themes 2.0:<br>
+                        - More saturated colors<br>
+                        - New color of window titlebar<br>
+                        - Removed borders from some buttons<br>
+                        - Added theme description<br>
+                        - Settings: Checkboxes for themes<br><br>
+                        Native:<br>
+                        - Pine can be set as default web browser<br>
+                        - Added htm/html file icon<br>
+                        - Open with Pine for http/https and others<br>
+                        - Electron 7.1.1 stable<br>
+                        - Faster app startup<br>
+                        - Added "Windows tasks"<br><br>
+                        Bookmarks:<br>
+                        - Removed url preview<br>
+                        - New blocks layout<br><br>
+                        Window controls:<br>
+                        - Added borders to buttons<br>
+                        - Removed fade-out animation<br><br>
+                        New browser context menu items:<br>
+                        - Download page (Ctrl + Shift + S)<br>
+                        - Bookmark this page<br>
+                        - Search for selected text<br>
+                        - Download images<br>
+                        - Copy image<br>
+                        - Bookmark this link<br>
+                        - Search for link text<br><br>
+                        Toolbar:<br>
+                        - Added show-full-history to tab history<br>
+                        - Bookmark button show you if page is already bookmarked<br>
+                        - Short address bar<br><br>
+                        Appearance:<br>
+                        - Removed all old themes<br>
+                        - Skinny scrollbars<br>
+                        - White page background color<br>
+                        - A lot of new icons<br><br>
+                        Search engines:<br>
+                        - Fixed ebay search<br>
+                        - Added startage<br><br>
+                        Bug fixes:<br>
+                        - App crashes after creating of new tab<br>
+                        - About window: No title bar<br>
+                        - About window: Empty icons<br>
+                        - Bookmarks: Can't move bookmarks<br>
+                        - Bookmarks: Duplicated bookmarks after moves<br>
+                        - History: Undefined titles and icons<br>
+                        - Windows: Auxclick not working<br>
+                        - Windows: Incorrect overlay/browser-view size<br><br>
+                        Installer:<br>
+                        - Added icon<br>
+                        - Added installation folder chooser
+                    </label>
+                </div>
+                <div class="update show" class="show">
+                    <a href="https://github.com/5R33CH4/Pine/releases/tag/v3.0.4" title="GitHub release"><img src="imgs/icons/github.png"></a>
+                    <label class="date">October 15 / 2019</label>
+                    <button onclick="toggleUpdate(this)">
+                        <img src="imgs/icons/expand.png">
+                        <span>Beta v3.0.4</span>
+                    </button>
+                    <label class="text">
+                        Side menu:<br>
+                        - Added "Reload ingnoring cache" icon<br>
+                        - New hotkey for "Reload ignoring cache" (Ctrl + Shift + F5)<br>
+                        - Menu items rearranged<br>
+                        - Repaired "Bookmark all tabs"<br>
+                        - Added additional hotkeys<br>
+                        - Added "Close all tabs" (Ctrl + Q)<br><br>
+                        Webview right click:<br>
+                        - Added "Copy link text"<br><br>
+                        Notifications:<br>
+                        - Faster auto hide (2.5 sec)<br>
+                        - Added "Opened with Pine" notification<br><br>
+                        New search engines:<br>
+                        - Twitter<br>
+                        - Amazon<br>
+                        - Twitch<br>
+                        - Wolfram Alpha<br>
+                        - GitHub<br>
+                        - Ebay<br><br>
+                        Settings:<br>
+                        - Added system titlebar option<br>
+                        - Removed ugly themes<br><br>
+                        Main window:<br>
+                        - Decreased minimum window size<br>
+                        - Added delay to target url preview (0.5 sec)<br><br>
+                        Bug fixes:<br>
+                        - Incorrect size of drag zone<br>
+                        - Some broken notifications<br>
+                        - Incorrect position of window controls<br>
+                        - Broken last-tab closed action<br>
+                        - Broken search-engine option<br>
+                        - Broken tab-closed action<br>
+                        - Broken on-startup action<br>
+                        - Wrong titlebar height<br>
+                        - Bad window size<br>
+                        - No fullscreen for overlay
+                    </label>
+                </div>
+                <div class="update show" class="show">
+                    <a href="https://github.com/5R33CH4/Pine/releases/tag/v3.0.3" title="GitHub release"><img src="imgs/icons/github.png"></a>
+                    <label class="date">October 9 / 2019</label>
+                    <button onclick="toggleUpdate(this)">
+                        <img src="imgs/icons/expand.png">
+                        <span>Beta v3.0.3</span>
+                    </button>
+                    <label class="text">
+                        Changes:<br>
+                        • Toolbar: Added back button right click history<br>
+                        • Engine: Electron v6.0.12<br>
+                        • Updator: Ask user if he wants to download an update<br>
+                        • History: Added date and time<br>
+                        • App commands: If can't go back go to the overlay<br>
+                        • Hotkeys: New hotkey for overlay (F1)<br><br>
+                        Design:<br>
+                        • New look of scrollbars<br>
+                        • Added borders to all windows<br>
+                        • Increased checkboxes corners rounding<br>
+                        • Added close-others icon<br><br>
+                        New themes:<br>
+                        • Twitchy-dark<br>
+                        • Contrast-light<br><br>
+                        Overlay:<br>
+                        • Added right click menu for all text fields<br>
+                        • Added paste and search for address bar<br><br>
+                        Bookmarks:<br>
+                        • On-bookmark-added -> Open bookmark editor<br>
+                        • On-folder-added -> Open folder editor<br>
+                        • Hidden folder header on editing<br>
+                        • Custom bookmark icon for invalid urls<br><br>
+                        About window:<br>
+                        • Added info text<br>
+                        • Added some links<br>
+                        • Improved look and feel<br><br>
+                        Settings:<br>
+                        • More compact themes preview<br>
+                        • Save home page on checkbox clicked<br>
+                        • Home: added buttons: use duckduckgo, use google, use bing, use yahoo<br><br>
+                        Bug fixes:<br>
+                        • Smooth showing ot the overlay on startup<br>
+                        • Broken tabs<br>
+                        • Incorrect downloads folder<br>
+                        • Sometimes new bookmarks disappear<br>
+                        • Some notifications are broken<br>
+                        • Invalid overlay size
+                    </label>
+                </div>
+                <div class="update show" class="show">
+                    <a href="https://github.com/5R33CH4/Pine/releases/tag/v3.0.2" title="GitHub release"><img src="imgs/icons/github.png"></a>
+                    <label class="date">October 5 / 2019</label>
+                    <button onclick="toggleUpdate(this)">
+                        <img src="imgs/icons/expand.png">
+                        <span>Beta v3.0.2</span>
+                    </button>
+                    <label class="text">
+                        Tab menu:<br>
+                        • Added tab history<br>
+                        • Added move left (Ctrl + Shift + PageUp)<br>
+                        • Added move right (Ctrl + Shift + PageDown)<br>
+                        • Added move to start (Ctrl + Shift + Home)<br>
+                        • Added move to end (Ctrl + Shift + End)<br>
+                        • Bookmark tab<br><br>
+                        Settings:<br>
+                        • Add search-engine option<br>
+                        • Add downloads-folder option<br>
+                        • Slide-right tab animation<br>
+                        • Compact themes preview<br><br>
+                        About window:<br>
+                        • Stylish titlebar<br><br>
+                        Engine:<br>
+                        • Electron v6.0.11<br><br>
+                        Bug fixes:<br>
+                        • Notification: cant exit app if update downloaded<br>
+                        • Windows: broken settings window controls<br>
+                        • "Open with Pine"<br>
+                        • Empty tab title if url is file<br>
+                        • Remove ability to check for update if update is downloading<br>
+                        • Broken download counter
+                    </label>
+                </div>
+                <div class="update show" class="show">
+                    <a href="https://github.com/5R33CH4/Pine/releases/tag/v3.0.1" title="GitHub release"><img src="imgs/icons/github.png"></a>
+                    <label class="date">October 1 / 2019</label>
+                    <button onclick="toggleUpdate(this)">
+                        <img src="imgs/icons/expand.png">
+                        <span>Beta v3.0.1</span>
+                    </button>
+                    <label class="text">
+                        Changes:<br>
+                        • Added ecosia search engine<br>
+                        • Linux: added app icon<br><br>
+                        Settings window:<br>
+                        • Added stylish titlebar<br>
+                        • Added padding to side panel<br><br>
+                        Bug fixes:<br>
+                        • Resize window bug<br>
+                        • Maximize / restore down window bug
+                    </label>
+                </div>
+                <div class="update show" class="show">
+                    <a href="https://github.com/5R33CH4/Pine/releases/tag/v3.0.0" title="GitHub release"><img src="imgs/icons/github.png"></a>
+                    <label class="date">September 29 / 2019</label>
+                    <button onclick="toggleUpdate(this)">
+                        <img src="imgs/icons/expand.png">
+                        <span>Beta v3.0.0 "Beta3 Update"</span>
+                    </button>
+                    <label class="text">
+                        Major changes:<br>
+                        • Brand new user interface<br>
+                        • New tab manager<br>
+                        • Sidebar replaced by the overlay<br>
+                        • New bookmark manager<br>
+                        • Linux build<br><br>
+                        Minor changes:<br>
+                        • Paste and search<br>
+                        • Added app commands<br>
+                        • Paste and match style<br>
+                        • 14 new themes<br>
+                        • Electron 6.0.10<br>
+                        • Search moved to the overlay<br>
+                        • New look of notifications<br>
+                        • Added history checkboxes<br><br>
+                        Temporary removed:<br>
+                        • Bookmarks bar<br>
+                        • Find in page<br>
+                        • Certeficate info<br>
+                        • Welcome window<br>
+                        • Picture in picture<br>
+                        • Tabs preview
+                    </label>
+                </div>
+                <div class="update show" class="show">
+                    <a href="https://github.com/5R33CH4/Pine/releases/tag/v2.1.0" title="GitHub release"><img src="imgs/icons/github.png"></a>
+                    <label class="date">August 10 / 2019</label>
+                    <button onclick="toggleUpdate(this)">
+                        <img src="imgs/icons/expand.png">
+                        <span>Beta v2.1.0 "Module Update"</span>
+                    </button>
+                    <label class="text">
+                        Better file support.<br><br>
+                        Design improvements:<br>
+                        • New tab button<br>
+                        • Delete icon<br>
+                        • Hotkeys window text<br>
+                        • Window controls<br>
+                        • Sidebar active tab indicator<br>
+                        • Tabs list button<br>
+                        • Hotkeys window titlebar<br>
+                        • Certificate info window titlebar<br>
+                        • Removed settings theme preview<br>
+                        • Darker colored borders<br><br>
+                        Bookmarks bar:<br>
+                        • Folder context menu<br>
+                        • Folder editor<br><br>
+                        Added custom action when the last tab is closed:<br>
+                        • Do nothing<br>
+                        • Open new tab<br>
+                        • Quit app<br><br>
+                        Tabs list button:<br>
+                        • Next tab<br>
+                        • Previous tab<br>
+                        • Switch tab hotkeys<br><br>
+                        GPL-3 license.<br><br>
+                        New supported file types:<br>
+                        • Images: PNG, GIF, JPEG, JPG<br>
+                        • Audio: MP3, M4A, WAV, OGG<br>
+                        • Text: TXT, JS, JSON, SQL, CSS, Markdown, License, PHP<br><br>
+                        New hotkeys:<br>
+                        • Next tab (Ctrl+Tab)<br>
+                        • Previous tab (Ctrl+Shift+Tab)<br>
+                        • Quit Pine (Ctrl+Shift+Q)<br>
+                        • Reload ignoring page (Ctrl+F5)<br><br>
+                        Improved stability:<br>
+                        • Storage verification<br>
+                        • Electron 6.0.1 (Stable branch)<br><br>
+                        Tab preview on hover.<br><br>
+                        Increased launch speed.<br><br>
+                        Welcome screen:<br>
+                        • Modern theme<br>
+                        • Open settings button<br>
+                        • Mouse wheel actions<br>
+                        • Platform<br><br>
+                        New search suggestions module.<br><br>
+                        About:<br>
+                        • License<br>
+                        • Platform<br><br>
+                        Fixed broken hotkeys.<br><br>
+                        Module code system (Better performance):<br>
+                        • applyBgColor, applyBorderRadius<br>
+                        • extToImagePath<br>
+                        • saveFileToJsonFolder<br>
+                        • epochToDate, epochToTime,<br>
+                        • loadBgColor, loadBorderRadius<br>
+                        • applyWinControls<br><br>
+                        Downloads:<br>
+                        • Fixed colored left border<br>
+                        • File extension name<br>
+                        • File type icons: Exe, Ttf, Doc, Docx, Rar, 7z, Zip, Tar, Wim, Xls, Xlsx, Ppt, Pptx, Bmp, Db, Z, Iso, Vcd, Dmg, Dat, Csv, Asp, Ico, Apk, Cs, Cpp, Py, Otf, Psd, Tif, Tiff, Svg, Xhtml, Jsp, Rss, Pps, Swift, Vb, Xlr, Mp4, Avi, Dll, Mpg, Mpeg, Pdf, Flv, Mov, Png, Gif, Jpeg, Jpg, Mp3, M4a, Wav, Ogg, Txt, Js, Json, Sql, Css, Md, License, Php<br><br>
+                        Linux ready:<br>
+                        • Window controls<br>
+                        • File system<br><br>
+                        New themes:<br>
+                        • Material<br>
+                        • Elementary
+                    </label>
+                </div>
+                <div class="update show" class="show">
+                    <a href="https://github.com/5R33CH4/Pine/releases/tag/v2.0.0" title="GitHub release"><img src="imgs/icons/github.png"></a>
+                    <label class="date">July 31 / 2019</label>
+                    <button onclick="toggleUpdate(this)">
+                        <img src="imgs/icons/expand.png">
+                        <span>Beta v2.0.0 "Pine Update"</span>
+                    </button>
+                    <label class="text">
+                        Color items:<br>
+                        • Bookmarks.<br>
+                        • History.<br>
+                        • Downloads.<br><br>
+                        Rebranding:<br>
+                        • Arrow Browser renamed to Pine.<br>
+                        • New app icon.<br>
+                        • Removed HTML file icon.<br><br>
+                        Added:<br>
+                        • Added hotkeys window quick shortcuts.<br>
+                        • Added optional home button.<br>
+                        • Clear browsing data.<br>
+                        • Added open file dialog.<br>
+                        • Bookmark all tabs.<br>
+                        • Open tab in Picture-In-Picture mode.<br><br>
+                        New welcome screen:<br>
+                        • Slide shortcuts (LeftArrow, RightArrow).<br>
+                        • Developer link.<br>
+                        • Buttons animation.<br>
+                        • New tab style.<br>
+                        • New look of bottom dots.<br>
+                        • Close window button.<br>
+                        • Removed border rounding block.<br>
+                        • Color images.<br>
+                        • New tabs: bookmarks bar, home page.<br>
+                        • Old skip button is back.<br>
+                        • Removed substrate from titlebar.<br><br>
+                        Sidebar:<br>
+                        • New load history method (Better performance).<br>
+                        • Added settings quick shortcuts.<br>
+                        • Patreon link.<br>
+                        • Bookmark folder.<br>
+                        • Brand new bookmark manager.<br>
+                        • Some new animations.<br>
+                        • Sidebar collapse.<br>
+                        • New hideable header.<br>
+                        • Added settings theme preview.<br>
+                        • Pin/unpin sidebar saves.<br><br>
+                        New bookmarks bar:<br>
+                        • Folders.<br>
+                        • New options: only icons, only labels.<br>
+                        • Bookmark editor.<br>
+                        • New layout.<br>
+                        • URL drop on bar/folder.<br>
+                        • Dragable links.<br><br>
+                        More tab menu actions:<br>
+                        • Back, forward.<br>
+                        • Copy URL.<br>
+                        • Go home.<br>
+                        • Close others, close to the right.<br>
+                        • Picture in picture.<br><br>
+                        Improved look and feel:<br>
+                        • Improved look of borders.<br>
+                        • New style of checkboxes and radio buttons.<br>
+                        • Classic tab behavior.<br>
+                        • New zoom notification.<br>
+                        • New Flex UI layout (Better performance).<br>
+                        • System window controls.<br>
+                        • Shorter max length of target URL panel.<br><br>
+                        New hotkeys:<br>
+                        • About (F2).<br>
+                        • Hotkeys window (F1).<br>
+                        • Actual zoom (Ctrl+Zero).<br>
+                        • Toggle sidebar (F3).<br>
+                        • Go home (Ctrl+Shift+H).<br>
+                        • Welcome window (F7).<br>
+                        • Focus address bar (F6).<br>
+                        • Report an issue (Ctrl+Shift+I).<br>
+                        • Copy tab URL (Ctrl+Shift+C).<br>
+                        • Picture in picture (Ctrl+Shift+P).<br>
+                        • Open file (Ctrl+O).<br>
+                        • Close others (Ctrl+Shift+W).<br>
+                        • Switch tab (Ctrl+Number).<br>
+                        • Clear browsing data (Ctrl+Shift+Del).<br><br>
+                        Fixes:<br>
+                        • Fixed suggestions in offline.<br>
+                        • Fixed actual zoom button.<br>
+                        • Fixed bookmarks bar Open in new tab and Copy URL buttons.<br>
+                        • Fixed loading of borders radius and bookmarks bar.<br>
+                        • Fixed settings start page error alert.<br>
+                        • Fixed duplicate history.<br>
+                        • Fixed about app incorrect URLs.
+                    </label>
+                </div>
+                <div class="update">
+                    <a href="https://github.com/5R33CH4/Pine/releases/tag/v1.5.0" title="GitHub release"><img src="imgs/icons/github.png"></a>
+                    <label class="date">July 10 / 2019</label>
+                    <button onclick="toggleUpdate(this)">
+                        <img src="imgs/icons/expand.png">
+                        <span>Beta v1.5.0 "Responsive Update"</span>
+                    </button>
+                    <label class="text">
+                        Changes:<br>
+                        • Added space between "Arrow" and "Browser".<br>
+                        • Improved file system.<br>
+                        • New background colors.<br>
+                        • New scrollable tabs manager (Better performance).<br>
+                        • Brand new compact title bar.<br>
+                        • New hotkey for Check for updates (Ctrl+Shift+U).<br>
+                        • Reduced the minimum window height.<br>
+                        • New icons for search engines.<br><br>
+                        Added:<br>
+                        • Zoom hotkeys (Ctrl+Wheel).<br>
+                        • Right click context menu for web pages.<br>
+                        • Back/Forward hotkeys (Alt+Left/Right).<br>
+                        • View page source (Ctrl+U).<br>
+                        • Inspect element.<br>
+                        • Added button press animation.<br>
+                        • Skip welcome button.<br>
+                        • New search engines: Baidu, Naver, Qwant, YouTube.<br><br>
+                        Fixes:<br>
+                        • Fixed broken load of app.<br>
+                        • Fixed tabs size at window restore.<br>
+                        • Fixed hotkeys window dark mode.<br>
+                        • Fixed history loading.
+                    </label>
+                </div>
+                <div class="update">
+                    <a href="https://github.com/5R33CH4/Pine/releases/tag/v1.4.4" title="GitHub release"><img src="imgs/icons/github.png"></a>
+                    <label class="date">June 26 / 2019</label>
+                    <button onclick="toggleUpdate(this)">
+                        <img src="imgs/icons/expand.png">
+                        <span>Beta v1.4.4</span>
+                    </button>
+                    <label class="text">
+                        Changes:<br>
+                        • Step loading of history (Better launch speed).<br><br>
+                        Fixes:<br>
+                        • Fixed notification text.<br>
+                        • Fixed update progress bar.
+                    </label>
+                </div>
+                <div class="update">
+                    <a href="https://github.com/5R33CH4/Pine/releases/tag/v1.4.3" title="GitHub release"><img src="imgs/icons/github.png"></a>
+                    <label class="date">June 25 / 2019</label>
+                    <button onclick="toggleUpdate(this)">
+                        <img src="imgs/icons/expand.png">
+                        <span>Beta v1.4.3 "Tabs Update"</span>
+                    </button>
+                    <label class="text">
+                        Changes:<br>
+                        • New type of window transparency if it is not active.<br>
+                        • Removed sidebar tabs animation (Better performance).<br><br>
+                        Added:<br>
+                        • Added files and URLs Drag&Drop support on tabs.<br>
+                        • Added color border for each tab.<br><br>
+                        Fixes:<br>
+                        • Fixed page zoom.<br>
+                        • Fixed broken first app start.
+                    </label>
+                </div>
+                <div class="update">
+                    <a href="https://github.com/5R33CH4/Pine/releases/tag/v1.4.2" title="GitHub release"><img src="imgs/icons/github.png"></a>
+                    <label class="date">June 22 / 2019</label>
+                    <button onclick="toggleUpdate(this)">
+                        <img src="imgs/icons/expand.png">
+                        <span>Beta v1.4.2 "Black Update"</span>
+                    </button>
+                    <label class="text">
+                        Changes:<br>
+                        • The notification panel can hold a maximum of 5 notifications.<br>
+                        • Implemented "is-url" module (https://github.com/segmentio/is-url).<br>
+                        • New bookmark options button animation.<br><br>
+                        Added:<br>
+                        • Added black background color.<br>
+                        • Added Mail.ru search engine.<br>
+                        • Added update error notification info.<br><br>
+                        Fixes:<br>
+                        • Fixed developer debug console.<br>
+                        • Fixed bookmarks bar in fullscreen mode.
+                    </label>
+                </div>
+                <div class="update">
+                    <a href="https://github.com/5R33CH4/Pine/releases/tag/v1.4.1" title="GitHub release"><img src="imgs/icons/github.png"></a>
+                    <label class="date">June 22 / 2019</label>
+                    <button onclick="toggleUpdate(this)">
+                        <img src="imgs/icons/expand.png">
+                        <span>Beta v1.4.1 "Progress Update"</span>
+                    </button>
+                    <label class="text">
+                        Changes:<br>
+                        • New app icon.<br>
+                        • New html file icon.<br>
+                        • Removed installer and uninstaller icons.<br>
+                        • Colored search engine icons.<br>
+                        • Notifications come out on the left.<br><br>
+                        Added:<br>
+                        • Added Yandex search engine.<br>
+                        • Added search engine icons in settings.<br>
+                        • Added download progress notification.<br>
+                        • Added update progress bar.
+                    </label>
+                </div>
+                <div class="update">
+                    <a href="https://github.com/5R33CH4/Pine/releases/tag/v1.4.0" title="GitHub release"><img src="imgs/icons/github.png"></a>
+                    <label class="date">June 16 / 2019</label>
+                    <button onclick="toggleUpdate(this)">
+                        <img src="imgs/icons/expand.png">
+                        <span>Beta v1.4.0 "History Update"</span>
+                    </button>
+                    <label class="text">
+                        Changes:<br>
+                        • Removed blur effect from disabled buttons.<br>
+                        • Improved performance of some interface elements.<br>
+                        • The default search engine is now DuckDuckGo.<br>
+                        • Removed file upload error notifications.<br>
+                        • New app icon.<br>
+                        • New look of the welcome window.<br>
+                        • Target url label moved to left-bottom corner.<br>
+                        • Increased font size of the target url label (12px).<br>
+                        • New look of the find-in-page panel.<br>
+                        • Now the substrates are darker.<br>
+                        • Removed shadows from favicons (Better performance).<br>
+                        • New look of sidebar tabs.<br><br>
+                        Added:<br>
+                        • Added new window controls for welcome and hotkeys windows.<br>
+                        • Added search to the hotkeys window.<br>
+                        • Added history system.<br>
+                        • Added sidebar tabs animation.<br>
+                        • Added libraries links on about page.<br>
+                        • Search engine and new tab blocks are added to welcome screen.<br>
+                        • Added optional bookmarks bar.<br>
+                        • Added notification middle click close action.<br>
+                        • Added hotkeys categories.<br>
+                        • Added web page certificate info window.<br><br>
+                        Fixes:<br>
+                        • Fixed dark mode on hotkeys window.<br>
+                        • Fixed search for bookmarks and downloads.<br>
+                        • Fixed dark mode at the sidebar downloads.<br>
+                        • Fixed incorrect downloads dates.<br>
+                        • Fixed address bar incorrect url.
+                    </label>
+                </div>
+                <div class="update">
+                    <a href="https://github.com/5R33CH4/Pine/releases/tag/v1.3.4" title="GitHub release"><img src="imgs/icons/github.png"></a>
+                    <label class="date">June 8 / 2019</label>
+                    <button onclick="toggleUpdate(this)">
+                        <img src="imgs/icons/expand.png">
+                        <span>Beta v1.3.4 "Gen6 Update"</span>
+                    </button>
+                    <label class="text">
+                        Changes:<br>
+                        • Libraries update (Electron Beta6, Chrome 76).<br>
+                        • System window controls are replaced with new ones.<br>
+                        • New tabs list button.<br>
+                        • New sidebar icon.<br>
+                        • New scrollbar style.<br>
+                        • The hotkey window can now be resized.<br>
+                        • New shortcut for settings (Ctrl + Comma).<br>
+                        • Increased app name font size on about page.<br>
+                        • Now the bookmark opens in the current tab.<br><br>
+                        Added:<br>
+                        • Added tab close button animation.<br>
+                        • Added mouse wheel events on the search panel.<br>
+                        • Added pin/unpin sidebar button.<br><br>
+                        Fixes:<br>
+                        • Fixed Google Auth freeze.<br>
+                        • Fixed invisible tabs after fullscreen mode.<br>
+                        • Fixed bookmark middle click.
+                    </label>
+                </div>
+                <div class="update">
+                    <a href="https://github.com/5R33CH4/Pine/releases/tag/v1.3.3" title="GitHub release"><img src="imgs/icons/github.png"></a>
+                    <label class="date">June 5 / 2019</label>
+                    <button onclick="toggleUpdate(this)">
+                        <img src="imgs/icons/expand.png">
+                        <span>Beta v1.3.3 "Gen5 Update"</span>
+                    </button>
+                    <label class="text">
+                        Changes:<br>
+                        • New icons: browser, installer, uninstaller, html file.<br>
+                        • When you click on the link in the sidebar, the panel will close.<br>
+                        • "Key binds" renamed to "Hotkeys".<br>
+                        • New shortcut for hotkeys (Ctrl + Shift + H).<br>
+                        • Firmware update (Electron 5, Chrome 73, Node 12).<br><br>
+                        Added:<br>
+                        • Added Fullscreen HTML API.<br>
+                        • Added background for keys in the hotkeys window.<br><br>
+                        Removed:<br>
+                        • Removed support for all file types except .html and .htm.<br><br>
+                        Fixes:<br>
+                        • Repaired fullscreen mode.<br>
+                        • Fixed update notification.
+                    </label>
+                </div>
+                <div class="update">
+                    <a href="https://github.com/5R33CH4/Pine/releases/tag/v1.3.2" title="GitHub release"><img src="imgs/icons/github.png"></a>
+                    <label class="date">June 4 / 2019</label>
+                    <button onclick="toggleUpdate(this)">
+                        <img src="imgs/icons/expand.png">
+                        <span>Beta v1.3.2 "Icons Update"</span>
+                    </button>
+                    <label class="text">
+                        Changes:<br>
+                        • New app icon.<br>
+                        • New installer icon.<br>
+                        • New html file icon.<br><br>
+                        Added:<br>
+                        • Added uninstaller icon.<br>
+                        • Added icons for htm, webp, xht, shtml, xhml files.<br>
+                        • Added links in settings.<br>
+                        • Added key binds window.
+                    </label>
+                </div>
+                <div class="update">
+                    <a href="https://github.com/5R33CH4/Pine/releases/tag/v1.3.1" title="GitHub release"><img src="imgs/icons/github.png"></a>
+                    <label class="date">June 3 / 2019</label>
+                    <button onclick="toggleUpdate(this)">
+                        <img src="imgs/icons/expand.png">
+                        <span>Beta v1.3.1 "Custom Update"</span>
+                    </button>
+                    <label class="text">
+                        Changes:<br>
+                        • New search panel animation.<br>
+                        • New welcome screen design.<br><br>
+                        Added:<br>
+                        • Added user custom search engine.<br>
+                        • Added "new-window" options for websites.<br>
+                        • Added icon for html files.<br>
+                        • Added welcome screen section in settings.<br>
+                        • Added icon, date, time for downloads.<br>
+                        • Added user custom new tab page (Default: "https://google.com").<br>
+                        • Added information buttons in the settings.<br>
+                        • Added some notifications in downloads.<br>
+                        • Added installer icon.<br>
+                        • Added Yahoo search engine.<br><br>
+                        Fixes:<br>
+                        • Fixed show file / folder buttons in downloads.<br>
+                        • Fixed "Search with" buttons.<br>
+                        • Now you can not clear downloads when the file is loaded.
+                    </label>
+                </div>
+                <div class="update">
+                    <a href="https://github.com/5R33CH4/Pine/releases/tag/v1.3.0" title="GitHub release"><img src="imgs/icons/github.png"></a>
+                    <label class="date">June 2 / 2019</label>
+                    <button onclick="toggleUpdate(this)">
+                        <img src="imgs/icons/expand.png">
+                        <span>Beta v1.3.0 "Sidebar Update"</span>
+                    </button>
+                    <label class="text">
+                        • Improved web security (Disabled node integration, JQuery is working).<br>
+                        • Added sidebar.<br>
+                        • Bookmarks, downloads, settings, about moved to sidebar.<br>
+                        • Fixed incorrect behavior of back/forward/refresh/stop buttons.<br>
+                        • "Open with" for htm, html, shtml, webp, xht, xhtml files.<br>
+                        • Some design improvements.<br>
+                        • Removed fade animations (Better performance).
+                    </label>
+                </div>
+                <div class="update">
+                    <a href="https://github.com/5R33CH4/Pine/releases/tag/v1.2.1" title="GitHub release"><img src="imgs/icons/github.png"></a>
+                    <label class="date">May 21 / 2019</label>
+                    <button onclick="toggleUpdate(this)">
+                        <img src="imgs/icons/expand.png">
+                        <span>Beta v1.2.1 "Design Update"</span>
+                    </button>
+                    <label class="text">
+                        • ArrowFlat UI Design 2.1 (Removed shadows and borders).<br>
+                        • Decreased installer file size.
+                    </label>
+                </div>
+                <div class="update">
+                    <a href="https://github.com/5R33CH4/Pine/releases/tag/v1.2.0" title="GitHub release"><img src="imgs/icons/github.png"></a>
+                    <label class="date">May 21 / 2019</label>
+                    <button onclick="toggleUpdate(this)">
+                        <img src="imgs/icons/expand.png">
+                        <span>Beta v1.2.0 "Impression Update"</span>
+                    </button>
+                    <label class="text">
+                        • New flat colors: blue, green, orange, red, light, gray, dark.<br>
+                        • Smaller font: 14px.<br>
+                        • Variable roundness of the corners of the interface elements.<br>
+                        • Some new shortcuts.<br>
+                        • The size and position of the window are maintained.<br>
+                        • New download manager.<br>
+                        • The application will not close during file download.<br>
+                        • Find in page.<br>
+                        • Removed loading screen.<br>
+                        • Windows 10 controls.<br>
+                        • Dynamic width of tabs.<br>
+                        • Tabs list button.<br>
+                        • Removed browser icon on the title bar<br>
+                        • Context menu icons.<br>
+                        • Removed error page.<br>
+                        • Lighter substrates.<br>
+                        • Welcome screen.<br>
+                        • Multiple search engines on search panel (Google, Bing, DuckDuckGo, Wikipedia).
+                    </label>
+                </div>
+                <div class="update">
+                    <a href="https://github.com/5R33CH4/Pine/releases/tag/v1.1.0" title="GitHub release"><img src="imgs/icons/github.png"></a>
+                    <a href="https://medium.com/module-art/arrowbrowser-v1-1-0-update-6c7a125b9ddd" title="Medium story"><img src="imgs/icons/medium.png"></a>
+                    <label class="date">April 13 / 2019</label>
+                    <button onclick="toggleUpdate(this)">
+                        <img src="imgs/icons/expand.png">
+                        <span>Beta v1.1.0 "Context Update"</span>
+                    </button>
+                    <label class="text">
+                        • New outlined icons style.<br>
+                        • Tab context menu.<br>
+                        • Light and dark themes.<br>
+                        • New bookmark manager (Drag&Drop).<br>
+                        • Loading screen.<br>
+                        • Zoom factor.<br>
+                        • Added context menu icons.<br>
+                        • New design (Shadows replaced by borders).<br>
+                        • Input roles.<br>
+                        • Bookmarks, settings, about in new tab.<br>
+                        • Sidebar replaced by context menu (Better performance).<br>
+                        • Keyboard shortcuts.<br>
+                        • Notification fade animation.<br>
+                        • New app icon.<br>
+                        • Fullscreen mode (F11).<br>
+                        • Removed download manager. It will appear later in the new form.<br>
+                        • Error page.<br>
+                        • New font (Open Sans).<br>
+                        • 50 new background colors.
+                    </label>
+                </div>
+                <div class="update">
+                    <a href="https://github.com/5R33CH4/Pine/releases/tag/v1.0.0" title="GitHub release"><img src="imgs/icons/github.png"></a>
+                    <label class="date">March 5 / 2019</label>
+                    <button onclick="toggleUpdate(this)">
+                        <img src="imgs/icons/expand.png">
+                        <span>Beta v1.0.0</span>
+                    </button>
+                    <label class="text">Arrow Browser is available!</label>
+                </div>
+                <button class="more" id="more-updates" onclick="moreUpdates()">All updates</button>
+            </div>
+        </center>
+        <footer id="footer"></footer>
+    </body>
+</html>
