@@ -1,0 +1,233 @@
+/*
+.########...#######...#######..########
+.##.....##.##.....##.##.....##....##...
+.##.....##.##.....##.##.....##....##...
+.########..##.....##.##.....##....##...
+.##...##...##.....##.##.....##....##...
+.##....##..##.....##.##.....##....##...
+.##.....##..#######...#######.....##...
+*/
+
+@font-face {
+    font-family: OpenSans;
+    src: url(../fonts/OpenSans-Semibold.ttf);
+}
+  
+:root{
+    --color-red: rgb(255, 63, 52);
+    --color-green: rgb(11, 232, 129);
+    --color-blue: rgb(15, 188, 249);
+    --color-orange: rgb(255, 168, 1);
+  
+    --px-radius: 0;
+    --px-font: 14px;
+  
+    --opacity-over: 0;
+  
+    --shadow-focus: inset 0 0 0 rgba(0, 0, 0, 0);
+  
+    --color-back: transparent;
+    --color-element: transparent;
+    --color-border: transparent;
+    --color-second: transparent;
+    --color-top: transparent;
+}
+
+* {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+      box-sizing: border-box;
+    -webkit-user-drag: none;
+  
+    font-family: OpenSans;
+    font-size: var(--px-font);
+}
+  
+/*
+ #####   ####  #####  #   #
+ #    # #    # #    #  # #
+ #####  #    # #    #   #
+ #    # #    # #    #   #
+ #    # #    # #    #   #
+ #####   ####  #####    #
+*/
+
+body {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    background-color: var(--color-back);
+    border: 1px solid var(--color-border);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+/*
+  ####  # #####  ###### #####    ##   #####
+ #      # #    # #      #    #  #  #  #    #
+  ####  # #    # #####  #####  #    # #    #
+      # # #    # #      #    # ###### #####
+ #    # # #    # #      #    # #    # #   #
+  ####  # #####  ###### #####  #    # #    #
+*/
+
+.sidebar {
+    position: absolute;
+    left: 0;
+    top: 33px;
+    bottom: 0;
+    width: 35%;
+    border-right: 1px solid var(--color-border);
+    padding: 16px;
+}
+
+.sidebar button {
+    display: inline-block;
+    width: calc(100% - 4px);
+    text-align: left;
+}
+
+body.system-titlebar .sidebar {
+    top: 0;
+}
+
+/*
+  ####   ####  #    # #####   ##   # #    # ###### #####   ####
+ #    # #    # ##   #   #    #  #  # ##   # #      #    # #
+ #      #    # # #  #   #   #    # # # #  # #####  #    #  ####
+ #      #    # #  # #   #   ###### # #  # # #      #####       #
+ #    # #    # #   ##   #   #    # # #   ## #      #   #  #    #
+  ####   ####  #    #   #   #    # # #    # ###### #    #  ####
+*/
+
+hr {
+    border: 0.5px solid var(--color-border);
+    margin: 10px;
+}
+
+.container {
+    position: absolute;
+    right: 0;
+    top: 33px;
+    bottom: 0;
+    width: 65%;
+    animation: slide-right;
+    animation-duration: 0.25s;
+    display: none;
+    padding: 28px;
+    overflow-y: auto;
+    color: var(--color-top);
+    border-left: none;
+}
+
+body.system-titlebar .container {
+    top: 0;
+}
+
+.container.active {
+    display: block;
+}
+
+.container .title {
+    font-size: 24px;
+    display: block;
+    margin-bottom: 32px;
+}
+
+.container input[type=text] {
+    width: calc(100% - 8px);
+}
+
+.nav-label {
+    padding: 2px;
+    margin: 2px;
+    display: inline-block;
+}
+
+/*
+ #    #  ####  #    # ######    #####    ##    ####  ######
+ #    # #    # ##  ## #         #    #  #  #  #    # #
+ ###### #    # # ## # #####     #    # #    # #      #####
+ #    # #    # #    # #         #####  ###### #  ### #
+ #    # #    # #    # #         #      #    # #    # #
+ #    #  ####  #    # ######    #      #    #  ####  ######
+*/
+
+.link {
+    width: calc(50% - 7px);
+}
+
+#home-page-input {
+    width: calc(100% - 90px);
+}
+
+/*                        
+  ##### #    # ###### #    # ######  ####  
+    #   #    # #      ##  ## #      #      
+    #   ###### #####  # ## # #####   ####  
+    #   #    # #      #    # #           # 
+    #   #    # #      #    # #      #    # 
+    #   #    # ###### #    # ######  ####  
+*/
+
+.theme {
+    border-radius: calc(var(--px-radius) + 4px);
+    border: 1px dashed var(--color-border);
+    margin-bottom: 4px;
+    padding: 6px;
+    text-align: center;
+}
+
+.theme .nav-checkbox {
+    display: inline-block;
+    width: calc(50% - 28px);
+    margin: 8px;
+}
+  
+.theme-name {
+    display: inline-block;
+    margin: 4px 2px;
+    vertical-align: middle;
+}
+
+.theme-description {
+    font-size: 10px;
+    display: inline-block;
+    margin: 6px 4px;
+    vertical-align: middle;
+}
+
+.theme-image {
+    vertical-align: top;
+    margin: 6px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, var(--opacity-over));
+}
+
+/*
+ #####   ####  #    # #    # #       ####    ##   #####   ####
+ #    # #    # #    # ##   # #      #    #  #  #  #    # #
+ #    # #    # #    # # #  # #      #    # #    # #    #  ####
+ #    # #    # # ## # #  # # #      #    # ###### #    #      #
+ #    # #    # ##  ## #   ## #      #    # #    # #    # #    #
+ #####   ####  #    # #    # ######  ####  #    # #####   ####
+*/
+
+#downloads-folder {
+    word-break: break-all;
+}
+
+/*
+ ##### #    # ######    ###### #    # #####
+   #   #    # #         #      ##   # #    #
+   #   ###### #####     #####  # #  # #    #
+   #   #    # #         #      #  # # #    #
+   #   #    # #         #      #   ## #    #
+   #   #    # ######    ###### #    # #####
+*/

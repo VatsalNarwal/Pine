@@ -1,0 +1,131 @@
+{
+  "name": "Pine",
+  "productName": "Pine",
+  "companyName": "Dynamic .inc",
+  "description": "Your favorite web browser",
+  "version": "3.2.0",
+  "license": "GPL-3.0",
+  "keywords": [
+    "browser",
+    "electron-app",
+    "chromium",
+    "electron",
+    "nodejs",
+    "web",
+    "beta",
+    "windows",
+    "linux",
+    "web-browser",
+    "js",
+    "electron-builder"
+  ],
+  "author": {
+    "name": "5R33CH4",
+    "email": "5r33ch4@yahoo.com"
+  },
+  "contributors": [
+    {
+      "name": "Broken Llama",
+      "email": "brokenllama@gmail.com"
+    }
+  ],
+  "main": "main.js",
+  "homepage": "https://5R33CH4.github.io/Pine",
+  "bugs": {
+    "url": "https://github.com/5R33CH4/Pine/issues"
+  },
+  "repository": {
+    "url": "https://github.com/5R33CH4/Pine"
+  },
+  "scripts": {
+    "start": "electron .",
+    "dist": "build --win --linux",
+    "dist-win": "build --win",
+    "dist-linux": "build --linux"
+  },
+  "dependencies": {
+    "color.js": "^0.1.3",
+    "dragula": "^3.7.2",
+    "electron-builder-squirrel-windows": "^21.2.0",
+    "electron-log": "^2.2.17",
+    "electron-updater": "^4.0.6",
+    "file-extension": "^4.0.5",
+    "get-ssl-certificate": "^2.3.2",
+    "get-title-at-url": "^1.1.6",
+    "is-dark-color": "^1.2.0",
+    "is-directory": "^0.3.1",
+    "parse-path": "^4.0.1",
+    "parse-url": "^5.0.1",
+    "persist-path": "^1.0.2",
+    "prepend-file": "^1.3.1",
+    "readl-async": "0.0.4",
+    "readline-promise": "^1.0.4",
+    "suggestion": "^2.1.2",
+    "validate.io-uri": "^1.0.0"
+  },
+  "devDependencies": {
+    "electron": "^7.1.1",
+    "electron-builder": "^20.44.4"
+  },
+  "build": {
+    "appId": "com.5R33CH4.Pine",
+    "copyright": "Copyright © 2020 5R33CH4 (Sreecharan S.)",
+    "fileAssociations": [
+      {
+        "ext": "htm",
+        "name": "Web page document [HTM]",
+        "description": "Web page document [HTM] - Pine",
+        "role": "Viewer",
+        "icon": "imgs/file.ico"
+      },
+      {
+        "ext": "html",
+        "name": "Web page document [HTML]",
+        "description": "Web page document [HTML] - Pine",
+        "role": "Viewer",
+        "icon": "imgs/file.ico"
+      }
+    ],
+    "nsis": {
+      "include": "installer.nsh",
+      "installerIcon": "imgs/install.ico",
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "asar": true,
+    "win": {
+      "publish": {
+        "provider": "github",
+        "repo": "Pine",
+        "owner": "5R33CH4",
+        "host": "github.com",
+        "protocol": "https",
+        "releaseType": "release"
+      },
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "imgs/icon.ico"
+    },
+    "mac": {
+      "category": "public.app-category.navigation"
+    },
+    "linux": {
+      "icon": "imgs/icon256.png",
+      "category": "Network",
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    }
+  }
+}

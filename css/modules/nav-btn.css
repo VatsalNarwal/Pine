@@ -1,0 +1,49 @@
+.nav-btn {
+    height: 32px;
+    border-radius: var(--px-radius);
+    display: inline-block;
+    margin: 2px;
+    vertical-align: middle;
+    background: none;
+    border: 1px solid transparent;
+    outline: none;
+    background-color: transparent;
+    padding: 0;
+}
+
+.nav-btn.with-border {
+    border-color: var(--color-border);
+    background-color: var(--color-element);
+}
+
+.nav-btn label {
+    padding-right: 8px;
+    vertical-align: middle;
+    color: var(--color-top);
+}
+
+.nav-btn img {
+    padding: 7px;
+    vertical-align: middle;
+}
+
+.nav-btn:hover {
+    background-color: var(--color-second);
+    border-color: var(--color-border);
+}
+
+.nav-btn:focus {
+    box-shadow: var(--shadow-focus);
+    border-color: var(--color-border);
+}
+
+.nav-btn:active, .nav-btn.active {
+    background-color: var(--color-titlebar);
+    border-color: var(--color-border);
+}
+
+.nav-btn:disabled {
+    background-color: transparent;
+    border-color: transparent;
+    opacity: var(--opacity-over);
+}

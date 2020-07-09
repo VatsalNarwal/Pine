@@ -1,0 +1,158 @@
+@font-face {
+    font-family: SegMDL2;
+    src: url(../../fonts/SegMDL2.ttf);
+}
+
+/*
+ ##### # ##### #      ###### #####    ##   #####
+   #   #   #   #      #      #    #  #  #  #    #
+   #   #   #   #      #####  #####  #    # #    #
+   #   #   #   #      #      #    # ###### #####
+   #   #   #   #      #      #    # #    # #   #
+   #   #   #   ###### ###### #####  #    # #    #
+*/
+
+#titlebar-icon {
+    float: left;
+    padding: 8px;
+}
+  
+#titlebar-title {
+    position: absolute;
+    top: 6px;
+    left: 30px;
+}
+  
+#drag-zone {
+    -webkit-app-region: drag;
+    position: absolute;
+    left: 4px;
+    right: 4px;
+    top: 4px;
+    bottom: calc(100% - 32px);
+    z-index: -100;
+}
+  
+#titlebar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 33px;
+    border-bottom: 1px solid var(--color-border);
+    background-color: var(--color-titlebar);
+    border-bottom: 1px solid var(--color-border);
+}
+
+body.system-titlebar #titlebar {
+    display: none;
+}
+
+#titlebar-icon {
+    padding: 8px;
+}
+
+#window-controls #close-btn:hover {
+    background-color: #E81022;
+    color: white;
+}
+
+#titlebar-label {
+    position: absolute;
+    top: 6px;
+    left: 34px;
+    font-size: var(--px-font);
+    color: var(--color-top);
+}
+
+#titlebar.blur #titlebar-label {
+    opacity: 0.5;
+}
+  
+/*
+ #    # # #    #     ####   ####  #    # ##### #####   ####  #       ####
+ #    # # ##   #    #    # #    # ##   #   #   #    # #    # #      #
+ #    # # # #  #    #      #    # # #  #   #   #    # #    # #       ####
+ # ## # # #  # #    #      #    # #  # #   #   #####  #    # #           #
+ ##  ## # #   ##    #    # #    # #   ##   #   #   #  #    # #      #    #
+ #    # # #    #     ####   ####  #    #   #   #    #  ####  ######  ####
+*/
+  
+#window-controls {
+    -webkit-app-region: no-drag;
+    float: right;
+    height: 34px;
+    display: grid;
+    margin: -1px;
+  }
+  
+  #window-controls span {
+    font-family: SegMDL2;
+    font-size: 10px;
+  }
+  
+  #window-controls .nav-btn {
+    grid-row: 1 / span 1;
+    border-radius: 0;
+    width: 34px;
+    height: 34px;
+    margin: 0;
+    background-color: transparent;
+    border: 1px solid transparent;
+  }
+  
+  #window-controls .nav-btn:hover {
+    background-color: var(--color-second);
+    border-color: var(--color-border);
+  }
+  
+  #window-controls .nav-btn:focus {
+    border-color: var(--color-border);
+  }
+  
+  #window-controls .nav-btn:active {
+    background-color: var(--color-border);
+  }
+  
+  #window-controls .button {
+    grid-row: 1 / span 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 34px;
+    color: var(--color-top);
+    margin-left: -1px;
+    border: 1px solid transparent;
+  }
+  
+  #window-controls .button:hover {
+    background-color: var(--color-second);
+    border-color: var(--color-border);
+    opacity: 1 !important;
+  }
+  
+  #window-controls #min-button {
+    grid-column: 1;
+  }
+  
+  #window-controls #max-btn, #window-controls #restore-btn {
+    grid-column: 2;
+  }
+  
+  #window-controls #close-btn {
+    grid-column: 3;
+  }
+  
+  #window-controls #close-btn:hover {
+    background-color: #E81022;
+    color: white;
+  }
+  
+  #titlebar.blur #window-controls .button, #titlebar.blur .theme-icon {
+    opacity: var(--opacity-over);
+  }
+  
+  #window-controls .button:active {
+    opacity: var(--opacity-over) !important;
+  }

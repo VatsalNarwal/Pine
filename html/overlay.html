@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <link rel="stylesheet" href="../css/modules/webkit.css">
+        <link rel="stylesheet" href="../css/modules/animations.css">
+        <link rel="stylesheet" href="../css/modules/nav-btn.css">
+        <link rel="stylesheet" href="../css/modules/input.css">
+        <link rel="stylesheet" href="../css/overlay.css">
+        <link rel="stylesheet" href="../node_modules/dragula/dist/dragula.css">
+    </head>
+    <body>
+        <div id="body-container">
+            <main>
+                <div class="block-title" id="search-title">
+                    <img class="theme-icon block-icon" name="search-16">
+                    <label>Search</label>
+                </div>
+                <div class="block-container" id="search-container">
+                    <div class="search-div">
+                        <img id="search-icon">
+                        <input type="text" placeholder="Search or type a URL" id="search-input">
+                        <button title="Clear" id="clear-search-btn" onclick="clearSearch()"></button>
+                        <button class="nav-btn with-border" title="Search" onclick="goSearch()">
+                            <img class="theme-icon" name="search-16">
+                        </button>
+                    </div>
+                    <div id="search-suggest" style="display: none;" class="hide">
+                        <div id="search-suggest-container"></div>
+                        <div id="search-engines">
+                            <button name="google" class="nav-btn search-engine" title="Search with Google"><img src="../imgs/engines/google.png"></button>
+                            <button name="bing" class="nav-btn search-engine" title="Search with Bing"><img src="../imgs/engines/bing.png"></button>
+                            <button name="duckduckgo" class="nav-btn search-engine" title="Search with DuckDuckGo"><img src="../imgs/engines/duckduckgo.png"></button>
+                            <button name="wikipedia" class="nav-btn search-engine" title="Search with Wikipedia"><img src="../imgs/engines/wikipedia.png"></button>
+                            <button name="yahoo" class="nav-btn search-engine" title="Search with Yahoo"><img src="../imgs/engines/yahoo.png"></button>
+                            <button name="yandex" class="nav-btn search-engine" title="Search with Yandex"><img src="../imgs/engines/yandex.png"></button>
+                            <button name="mailru" class="nav-btn search-engine" title="Search with Mail.ru"><img src="../imgs/engines/mailru.png"></button>
+                            <button name="baidu" class="nav-btn search-engine" title="Search with Baidu"><img src="../imgs/engines/baidu.png"></button>
+                            <button name="naver" class="nav-btn search-engine" title="Search with Naver"><img src="../imgs/engines/naver.png"></button>
+                            <button name="qwant" class="nav-btn search-engine" title="Search with Qwant"><img src="../imgs/engines/qwant.png"></button>
+                            <button name="youtube" class="nav-btn search-engine" title="Search with YouTube"><img src="../imgs/engines/youtube.png"></button>
+                            <button name="ecosia" class="nav-btn search-engine" title="Search with Ecosia"><img src="../imgs/engines/ecosia.png"></button>
+                            <button name="twitter" class="nav-btn search-engine" title="Search with Twitter"><img src="../imgs/engines/twitter.png"></button>
+                            <button name="amazon" class="nav-btn search-engine" title="Search with Amazon"><img src="../imgs/engines/amazon.png"></button>
+                            <button name="twitch" class="nav-btn search-engine" title="Search with Twitch"><img src="../imgs/engines/twitch.png"></button>
+                            <button name="github" class="nav-btn search-engine" title="Search with GitHub"><img src="../imgs/engines/github.png"></button>
+                            <button name="wolfram" class="nav-btn search-engine" title="Search with WolframAlpha"><img src="../imgs/engines/wolfram.png"></button>
+                            <button name="ebay" class="nav-btn search-engine" title="Search with Ebay"><img src="../imgs/engines/ebay.png"></button>
+                            <button name="startpage" class="nav-btn search-engine" title="Search with Startpage"><img src="../imgs/engines/startpage.png"></button>
+                        </div>
+                    </div>
+                </div>
+                <div id="collections">
+                    <div class="block-title" id="search-title">
+                        <img class="theme-icon block-icon" name="tab-16">
+                        <label>Tab groups</label>
+                    </div>
+                    <div class="collection-divider"></div>
+                    <button class="collection green active" onclick="switchTabGroup(0)" id="group-0" title="Switch to Green tab group">
+                        <img class="theme-icon collection-icon" name="one-16">
+                        <label class="collection-name">Green</label>
+                    </button>
+                    <button class="collection blue" onclick="switchTabGroup(1)" id="group-1" title="Switch to Blue tab group">
+                        <img class="theme-icon collection-icon" name="two-16">
+                        <label class="collection-name">Blue</label>
+                    </button>
+                    <button class="collection orange" onclick="switchTabGroup(2)" id="group-2" title="Switch to Orange tab group">
+                        <img class="theme-icon collection-icon" name="three-16">
+                        <label class="collection-name">Orange</label>
+                    </button>
+                    <div class="collection-divider"></div>
+                    <button class="collection red" onclick="switchTabGroup('incognito')" id="group-incognito" title="Switch to Incognito mode">
+                        <img class="theme-icon collection-icon" name="incognito-16">
+                        <label class="collection-name">Incognito</label>
+                    </button>
+                </div>
+    
+                <!-- <div class="block-title" id="highlights-title">
+                    <img class="theme-icon" name="lamp-16">
+                    <label>Highlights</label>
+                </div>
+                <div class="block-container" id="highlights-container"></div> -->
+    
+                <div class="block-title" id="bookmarks-title">
+                    <img class="theme-icon block-icon" name="bookmarks-16">
+                    <label>Bookmarks</label>
+                    <div class="block-buttons">
+                        <button id="bookmarks-arrange-btn" class="nav-btn" title="Turn off dragging" onclick="toggleArrange()" style="display: none">
+                            <img class="theme-icon" name="arrange-16">
+                        </button>
+                        <button id="bookmarks-move-btn" class="nav-btn" title="Turn on dragging" onclick="toggleArrange()">
+                            <img class="theme-icon" name="move-16">
+                        </button>
+                        <div class="block-title-vr"></div>
+                        <button class="nav-btn" title="New bookmark" onclick="newBookmark()">
+                            <img class="theme-icon" name="add-bookmark-16">
+                        </button>
+                        <button class="nav-btn" title="New folder" onclick="newFolder()">
+                            <img class="theme-icon" name="add-folder-16">
+                        </button>
+                    </div>
+                </div>
+                <div class="block-container" id="bookmarks-container"></div>
+    
+                <div class="block-title" id="history-title">
+                    <img class="theme-icon block-icon" name="history-16">
+                    <label>History</label>
+                    <div class="block-buttons">
+                        <button class="nav-btn" title="Delete selected history" onclick="deleteSelectedHistory()">
+                            <img class="theme-icon" name="delete-16">
+                        </button>
+                        <div class="block-title-vr"></div>
+                        <button class="nav-btn" title="Clear all history" onclick="clearHistory()">
+                            <img class="theme-icon" name="clear-16">
+                        </button>
+                        <div class="block-title-vr"></div>
+                        <button id="more-history-btn" class="nav-btn" title="Load more history" onclick="loadMoreHistory()">
+                            <img class="theme-icon" name="down-16">
+                        </button>
+                        <button id="collapse-history-btn" class="nav-btn" title="Collapse history" onclick="collapseHistory()">
+                            <img class="theme-icon" name="up-16">
+                        </button>
+                    </div>
+                </div>
+                <div class="block-container" id="history-container"></div>
+    
+                <div class="block-title" id="downloads-title">
+                    <img class="theme-icon block-icon" name="download-16">
+                    <label>Downloads</label>
+                    <div class="block-buttons">
+                        <button class="nav-btn" title="Clear all downloads" onclick="clearDownloads()">
+                            <img class="theme-icon" name="clear-16">
+                        </button>
+                        <div class="block-title-vr"></div>
+                        <button id="more-downloads-btn" class="nav-btn" title="Load more downloads" onclick="loadMoreDownloads()">
+                            <img class="theme-icon" name="down-16">
+                        </button>
+                        <button id="collapse-downloads-btn" class="nav-btn" title="Collapse downloads" onclick="collapseDownloads()">
+                            <img class="theme-icon" name="up-16">
+                        </button>
+                    </div>
+                </div>
+                <div class="block-container" id="downloads-container"></div>
+            </main>
+        </div>
+
+        <script type="text/javascript" src="../js/overlay.js"></script>
+    </body>
+</html>

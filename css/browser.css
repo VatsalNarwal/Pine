@@ -1,0 +1,493 @@
+/*
+.########...#######...#######..########
+.##.....##.##.....##.##.....##....##...
+.##.....##.##.....##.##.....##....##...
+.########..##.....##.##.....##....##...
+.##...##...##.....##.##.....##....##...
+.##....##..##.....##.##.....##....##...
+.##.....##..#######...#######.....##...
+*/
+
+@font-face {
+  font-family: SegMDL2;
+  src: url(../fonts/SegMDL2.ttf);
+}
+
+@font-face {
+  font-family: OpenSans;
+  src: url(../fonts/OpenSans-Semibold.ttf);
+}
+
+:root {
+  /* --color-accent: #5F63FA; */
+
+  /* --color-red: rgb(255, 63, 52);
+  --color-green: rgb(11, 232, 129);
+  --color-blue: rgb(15, 188, 249);
+  --color-orange: rgb(255, 168, 1); */
+
+  --px-radius: 0;
+  --px-font: 14px;
+
+  --opacity-over: 0;
+
+  --shadow-focus: inset 0 0 0 rgba(0, 0, 0, 0);
+
+  --color-back: transparent;
+  --color-element: transparent;
+  --color-border: transparent;
+  --color-second: transparent;
+  --color-top: transparent;
+}
+
+* {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+	box-sizing: border-box;
+  -webkit-user-drag: none;
+
+  font-family: OpenSans;
+  font-size: var(--px-font);
+}
+
+/*
+....###....##....##.####.##.....##....###....########.####..#######..##....##..######.
+...##.##...###...##..##..###...###...##.##......##.....##..##.....##.###...##.##....##
+..##...##..####..##..##..####.####..##...##.....##.....##..##.....##.####..##.##......
+.##.....##.##.##.##..##..##.###.##.##.....##....##.....##..##.....##.##.##.##..######.
+.#########.##..####..##..##.....##.#########....##.....##..##.....##.##..####.......##
+.##.....##.##...###..##..##.....##.##.....##....##.....##..##.....##.##...###.##....##
+.##.....##.##....##.####.##.....##.##.....##....##....####..#######..##....##..######.
+*/
+
+@keyframes anim-show {
+  from {
+    opacity: 0;
+    transform: scale(0.75);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes anim-suggest {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes anim-find {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes anim-notif {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/*
+.########.####.########.##.......########....########.....###....########.
+....##.....##.....##....##.......##..........##.....##...##.##...##.....##
+....##.....##.....##....##.......##..........##.....##..##...##..##.....##
+....##.....##.....##....##.......######......########..##.....##.########.
+....##.....##.....##....##.......##..........##.....##.#########.##...##..
+....##.....##.....##....##.......##..........##.....##.##.....##.##....##.
+....##....####....##....########.########....########..##.....##.##.....##
+*/
+
+#drag-zone {
+  -webkit-app-region: drag;
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  top: 4px;
+  bottom: calc(100% - 32px);
+  z-index: -100;
+}
+
+#drag-zone.maximize {
+  left: -1px;
+  right: -1px;
+  top: -1px;
+}
+
+#titlebar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 33px;
+  padding: 2px;
+  display: flex;
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-back);
+  height: 41px;
+  z-index: 100;
+}
+
+#middle-container {
+  flex: 1;
+  text-align: center;
+}
+
+#address-container {
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  margin: 0 auto;
+}
+
+#search-div {
+  flex: 1;
+  position: relative;
+  height: 32px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-element);
+  margin: 2px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#search-input {
+  background: none;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 0;
+  margin: 0;
+  outline: none;
+  border: none;
+  text-align: center;
+  margin: 0;
+  height: 30px;
+  transition: font-size 0.25s, height 0.25s;
+  padding: 8px;
+  color: var(--color-top);
+  transition-delay: 0.5s;
+  border-radius: 0;
+}
+
+#search-input:hover {
+  background-color: var(--color-second);
+}
+
+#search-input:focus {
+  box-shadow: var(--shadow-focus);
+  border-color: var(--color-border);
+}
+
+#search-input:active {
+  background-color: var(--color-titlebar);
+}
+
+#search-input.show-target {
+  font-size: 12px;
+  border-bottom: none;
+  height: 16px;
+  box-shadow: none;
+}
+
+.title-bar-vr {
+  display: inline-block;
+  width: 1px;
+  height: 16px;
+  background-color: var(--color-border);
+  margin: 10px 2px;
+  vertical-align: middle;
+}
+
+#bookmark-btn, #bookmarked-btn {
+  margin-left: -3px;
+  border-radius:  0 var(--px-radius) var(--px-radius) 0;
+}
+
+#secure-icon, #not-secure-icon {
+  border: 1px dashed var(--color-border);
+  vertical-align: middle;
+  display: inline-block;
+  border-radius: var(--px-radius) 0 0 var(--px-radius);
+  margin: 2px;
+  margin-right: -3px;
+  height: 32px;
+}
+
+#secure-icon img, #not-secure-icon img {
+  padding: 7px;
+}
+
+/*
+ #####   ##   #####   ####  ###### #####    #    # #####  #
+   #    #  #  #    # #    # #        #      #    # #    # #
+   #   #    # #    # #      #####    #      #    # #    # #
+   #   ###### #####  #  ### #        #      #    # #####  #
+   #   #    # #   #  #    # #        #      #    # #   #  #
+   #   #    # #    #  ####  ######   #       ####  #    # ######
+*/
+
+#target-url {
+  color: var(--color-top);
+  font-size: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  word-break: keep-all;
+  text-overflow: ellipsis;
+  border: 2px solid var(--color-over);
+  position: absolute;
+  bottom: 1px;
+  left: 8px;
+  right: 8px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.25s;
+  transition-delay: 0.5s;
+  text-align: center;
+}
+
+#target-url.show {
+  opacity: var(--opacity-over);
+}
+
+/*
+.##......##.####.##....##.....######...#######..##....##.########.########...#######..##........######.
+.##..##..##..##..###...##....##....##.##.....##.###...##....##....##.....##.##.....##.##.......##....##
+.##..##..##..##..####..##....##.......##.....##.####..##....##....##.....##.##.....##.##.......##......
+.##..##..##..##..##.##.##....##.......##.....##.##.##.##....##....########..##.....##.##........######.
+.##..##..##..##..##..####....##.......##.....##.##..####....##....##...##...##.....##.##.............##
+.##..##..##..##..##...###....##....##.##.....##.##...###....##....##....##..##.....##.##.......##....##
+..###..###..####.##....##.....######...#######..##....##....##....##.....##..#######..########..######.
+*/
+
+#window-controls {
+  -webkit-app-region: no-drag;
+  float: right;
+  height: 34px;
+  display: grid;
+  margin: -1px;
+}
+
+#window-controls span {
+  font-family: SegMDL2;
+  font-size: 10px;
+}
+
+#window-controls .nav-btn {
+  grid-row: 1 / span 1;
+  border-radius: 0;
+  width: 34px;
+  height: 34px;
+  margin: 0;
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
+#window-controls .nav-btn:hover {
+  background-color: var(--color-second);
+  border-color: var(--color-border);
+}
+
+#window-controls .nav-btn:focus {
+  border-color: var(--color-border);
+}
+
+#window-controls .nav-btn:active {
+  background-color: var(--color-border);
+}
+
+#window-controls .button {
+  grid-row: 1 / span 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 34px;
+  color: var(--color-top);
+  margin-left: -1px;
+  border: 1px solid transparent;
+}
+
+#window-controls .button:hover {
+  background-color: var(--color-second);
+  border-color: var(--color-border);
+  opacity: 1 !important;
+}
+
+#window-controls #min-button {
+  grid-column: 1;
+}
+
+#window-controls #max-btn, #window-controls #restore-btn {
+  grid-column: 2;
+}
+
+#window-controls #close-btn {
+  grid-column: 3;
+}
+
+#window-controls #close-btn:hover {
+  background-color: #E81022;
+  color: white;
+}
+
+body.blur #window-controls .button, body.blur .tabman .theme-icon {
+  opacity: var(--opacity-over);
+}
+
+#window-controls .button:active {
+  opacity: var(--opacity-over) !important;
+}
+
+/*
+.########...#######..########..##....##
+.##.....##.##.....##.##.....##..##..##.
+.##.....##.##.....##.##.....##...####..
+.########..##.....##.##.....##....##...
+.##.....##.##.....##.##.....##....##...
+.##.....##.##.....##.##.....##....##...
+.########...#######..########.....##...
+*/
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-back);
+  background-attachment: fixed;
+  overflow: hidden;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  border: 1px solid var(--color-border);
+}
+
+/* theme icon */
+.theme-icon {
+  opacity: 0;
+}
+
+.theme-icon.loaded {
+  opacity: 1;
+}
+
+/*
+.##.....##.####....########.##.......########.##.....##.########.##....##.########..######.
+.##.....##..##.....##.......##.......##.......###...###.##.......###...##....##....##....##
+.##.....##..##.....##.......##.......##.......####.####.##.......####..##....##....##......
+.##.....##..##.....######...##.......######...##.###.##.######...##.##.##....##.....######.
+.##.....##..##.....##.......##.......##.......##.....##.##.......##..####....##..........##
+.##.....##..##.....##.......##.......##.......##.....##.##.......##...###....##....##....##
+..#######..####....########.########.########.##.....##.########.##....##....##.....######.
+*/
+
+label {
+  color: var(--color-top);
+  word-break: break-all;
+}
+
+label.subtitle {
+  font-size: 24px;
+}
+
+label.title {
+  font-size: 48px;
+}
+
+hr {
+  border: 0.5px solid var(--color-border);
+  margin: 2px 8px;
+}
+
+/*
+.########..##........#######...######..##....##....########.####.########.##.......########
+.##.....##.##.......##.....##.##....##.##...##........##.....##.....##....##.......##......
+.##.....##.##.......##.....##.##.......##..##.........##.....##.....##....##.......##......
+.########..##.......##.....##.##.......#####..........##.....##.....##....##.......######..
+.##.....##.##.......##.....##.##.......##..##.........##.....##.....##....##.......##......
+.##.....##.##.......##.....##.##....##.##...##........##.....##.....##....##.......##......
+.########..########..#######...######..##....##.......##....####....##....########.########
+*/
+
+.block-title {
+  padding: 4px;
+}
+
+.block-title label {
+  vertical-align: super;
+}
+
+/*
+ #    # ###### #    # #    #    #####  ##### #    #
+ ##  ## #      ##   # #    #    #    #   #   ##   #
+ # ## # #####  # #  # #    #    #####    #   # #  #
+ #    # #      #  # # #    #    #    #   #   #  # #
+ #    # #      #   ## #    #    #    #   #   #   ##
+ #    # ###### #    #  ####     #####    #   #    #
+*/
+
+#settings-btn {
+  position: fixed;
+  right: 3px;
+  top: 36px;
+}
+
+/*                
+  #    # ###### #####  #   ##   
+  ##  ## #      #    # #  #  #  
+  # ## # #####  #    # # #    # 
+  #    # #      #    # # ###### 
+  #    # #      #    # # #    # 
+  #    # ###### #####  # #    # 
+*/
+
+@media only screen and (max-width: 500px) {
+  #forward-btn {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  #bookmark-btn {
+    display: none;
+  }
+
+  #bookmarked-btn {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #home-btn {
+    display: none;
+  }
+}
+
+/*
+  ##### #    # ######    ###### #    # #####  
+    #   #    # #         #      ##   # #    # 
+    #   ###### #####     #####  # #  # #    # 
+    #   #    # #         #      #  # # #    # 
+    #   #    # #         #      #   ## #    # 
+    #   #    # ######    ###### #    # #####  
+*/

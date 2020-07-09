@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <link rel="stylesheet" href="../css/modules/webkit.css">
+        <link rel="stylesheet" href="../css/modules/animations.css">
+        <link rel="stylesheet" href="../css/modules/nav-btn.css">
+        <link rel="stylesheet" href="../css/modules/input.css">
+        <link rel="stylesheet" href="../css/modules/checkbox.css">
+        <link rel="stylesheet" href="../css/modules/radio.css">
+        <link rel="stylesheet" href="../css/modules/link.css">
+        <link rel="stylesheet" href="../css/modules/titlebar.css">
+        <link rel="stylesheet" href="../css/settings.css">
+    </head>
+    <body>
+        <div id="drag-zone"></div>
+        <div id="titlebar">
+            <img id="titlebar-icon" class="theme-icon" name="settings-16">
+            <label id="titlebar-label">Settings</label>
+            <div id="window-controls"></div>
+        </div>
+        
+        <div class="sidebar" id="sidebar">
+            <button class="nav-btn with-border active" onclick="showCategory('themes')">
+                <img name="theme-16" class="theme-icon">
+                <label>Appearance</label>
+            </button>
+            <button class="nav-btn with-border" onclick="showCategory('home-page')">
+                <img name="home-16" class="theme-icon">
+                <label>Home page</label>
+            </button>
+            <button class="nav-btn with-border" onclick="showCategory('search-engine')">
+                <img name="search-16" class="theme-icon">
+                <label>Search engine</label>
+            </button>
+            <button class="nav-btn with-border" onclick="showCategory('startup')">
+                <img name="launch-16" class="theme-icon">
+                <label>On startup</label>
+            </button>
+            <button class="nav-btn with-border" onclick="showCategory('tabs')">
+                <img name="tab-16" class="theme-icon">
+                <label>Tabs</label>
+            </button>
+            <button class="nav-btn with-border" onclick="showCategory('window')">
+                <img name="window-16" class="theme-icon">
+                <label>Window</label>
+            </button>
+            <button class="nav-btn with-border" onclick="showCategory('downloads')">
+                <img name="download-16" class="theme-icon">
+                <label>Downloads</label>
+            </button>
+            <button class="nav-btn with-border" onclick="showCategory('clear-browsing-data')">
+                <img name="clear-16" class="theme-icon">
+                <label>Clear browsing data</label>
+            </button>
+        </div>
+
+        <div class="container active" id="themes">
+            <label class="title">Theme</label>
+            <label class="nav-label">Choose the application color theme.</label>
+            <hr>
+            <div id="theme-manager"></div>
+        </div>
+
+        <div class="container" id="home-page">
+            <label class="title">Home page</label>
+            <label class="nav-label">The page that will open when you create new tab or click the home button.</label>
+            <hr>
+            <label class="nav-label">Home page URL:</label>
+            <input type="text" id="home-page-input" placeholder="Home page URL">
+            <button class="nav-btn with-border" onclick="saveHomePage()">
+                <img class="theme-icon" name="save-16">
+                <label>Save</label>
+            </button>
+            <button class="link" onclick="useHomePage('https://google.com')">
+                <label>Use Google</label>
+            </button>
+            <button class="link" onclick="useHomePage('https://bing.com')">
+                <label>Use Bing</label>
+            </button>
+            <button class="link" onclick="useHomePage('https://duckduckgo.com')">
+                <label>Use DuckDuckGo</label>
+            </button>
+            <button class="link" onclick="useHomePage('https://yahoo.com')">
+                <label>Use Yahoo</label>
+            </button>
+            <hr>
+            <div class="nav-checkbox" onclick="saveHomePage()">
+                <label>Show button</label>
+                <input type="checkbox" id="home-page-checkbox" class="checkbox">
+            </div>
+        </div>
+
+        <div class="container" id="search-engine">
+            <label class="title">Search engine</label>
+            <label class="nav-label">Search engine used in the address bar.</label>
+            <hr>
+            <div class="nav-checkbox">
+                <img src="../imgs/engines/google.png">
+                <label>Google</label>
+                <input type="radio" onclick="requestSearchEngine(this.value)" class="checkbox" checked name="search-engine" value="google">
+            </div>
+            <div class="nav-checkbox">
+                <img src="../imgs/engines/bing.png">
+                <label>Bing</label>
+                <input type="radio" onclick="requestSearchEngine(this.value)" class="checkbox" name="search-engine" value="bing">
+            </div>
+            <div class="nav-checkbox">
+                <img src="../imgs/engines/duckduckgo.png">
+                <label>DuckDuckGo</label>
+                <input type="radio" onclick="requestSearchEngine(this.value)" class="checkbox" name="search-engine" value="duckduckgo">
+            </div>
+            <div class="nav-checkbox">
+                <img src="../imgs/engines/wikipedia.png">
+                <label>Wikipedia</label>
+                <input type="radio" onclick="requestSearchEngine(this.value)" class="checkbox" name="search-engine" value="wikipedia">
+            </div>
+            <div class="nav-checkbox">
+                <img src="../imgs/engines/yahoo.png">
+                <label>Yahoo</label>
+                <input type="radio" onclick="requestSearchEngine(this.value)" class="checkbox" name="search-engine" value="yahoo">
+            </div>
+            <div class="nav-checkbox">
+                <img src="../imgs/engines/yandex.png">
+                <label>Yandex</label>
+                <input type="radio" onclick="requestSearchEngine(this.value)" class="checkbox" name="search-engine" value="yandex">
+            </div>
+            <div class="nav-checkbox">
+                <img src="../imgs/engines/mailru.png">
+                <label>MailRu</label>
+                <input type="radio" onclick="requestSearchEngine(this.value)" class="checkbox" name="search-engine" value="mailru">
+            </div>
+            <div class="nav-checkbox">
+                <img src="../imgs/engines/baidu.png">
+                <label>Baidu</label>
+                <input type="radio" onclick="requestSearchEngine(this.value)" class="checkbox" name="search-engine" value="baidu">
+            </div>
+            <div class="nav-checkbox">
+                <img src="../imgs/engines/naver.png">
+                <label>Naver</label>
+                <input type="radio" onclick="requestSearchEngine(this.value)" class="checkbox" name="search-engine" value="naver">
+            </div>
+            <div class="nav-checkbox">
+                <img src="../imgs/engines/qwant.png">
+                <label>Qwant</label>
+                <input type="radio" onclick="requestSearchEngine(this.value)" class="checkbox" name="search-engine" value="qwant">
+            </div>
+            <div class="nav-checkbox">
+                <img src="../imgs/engines/youtube.png">
+                <label>YouTube</label>
+                <input type="radio" onclick="requestSearchEngine(this.value)" class="checkbox" name="search-engine" value="youtube">
+            </div>
+            <div class="nav-checkbox">
+                <img src="../imgs/engines/ecosia.png">
+                <label>Ecosia</label>
+                <input type="radio" onclick="requestSearchEngine(this.value)" class="checkbox" name="search-engine" value="ecosia">
+            </div>
+            <div class="nav-checkbox">
+                <img src="../imgs/engines/twitter.png">
+                <label>Twitter</label>
+                <input type="radio" onclick="requestSearchEngine(this.value)" class="checkbox" name="search-engine" value="twitter">
+            </div>
+            <div class="nav-checkbox">
+                <img src="../imgs/engines/amazon.png">
+                <label>Amazon</label>
+                <input type="radio" onclick="requestSearchEngine(this.value)" class="checkbox" name="search-engine" value="amazon">
+            </div>
+            <div class="nav-checkbox">
+                <img src="../imgs/engines/twitch.png">
+                <label>Twitch</label>
+                <input type="radio" onclick="requestSearchEngine(this.value)" class="checkbox" name="search-engine" value="twitch">
+            </div>
+            <div class="nav-checkbox">
+                <img src="../imgs/engines/github.png">
+                <label>GitHub</label>
+                <input type="radio" onclick="requestSearchEngine(this.value)" class="checkbox" name="search-engine" value="github">
+            </div>
+            <div class="nav-checkbox">
+                <img src="../imgs/engines/wolfram.png">
+                <label>WolframAlpha</label>
+                <input type="radio" onclick="requestSearchEngine(this.value)" class="checkbox" name="search-engine" value="wolfram">
+            </div>
+            <div class="nav-checkbox">
+                <img src="../imgs/engines/ebay.png">
+                <label>Ebay</label>
+                <input type="radio" onclick="requestSearchEngine(this.value)" class="checkbox" name="search-engine" value="ebay">
+            </div>
+            <div class="nav-checkbox">
+                <img src="../imgs/engines/startpage.png">
+                <label>Startpage</label>
+                <input type="radio" onclick="requestSearchEngine(this.value)" class="checkbox" name="search-engine" value="startpage">
+            </div>
+        </div>
+
+        <div class="container" id="startup">
+            <label class="title">On startup</label>
+            <label class="nav-label">This action will be performed when the application starts.</label>
+            <hr>
+            <div class="nav-checkbox">
+                <label>Show overlay</label>
+                <input type="radio" onclick="requestStartup(this.value)" class="checkbox" name="startup" value="overlay" checked>
+            </div>
+            <div class="nav-checkbox">
+                <label>Open new tab</label>
+                <input type="radio" onclick="requestStartup(this.value)" class="checkbox" name="startup" value="new-tab">
+            </div>
+        </div>
+
+        <div class="container" id="tabs">
+            <label class="title">On active tab closed</label>
+            <div class="nav-checkbox">
+                <label>Show overlay</label>
+                <input type="radio" onclick="requestTabClosed(this.value)" class="checkbox" name="tabclosed" value="overlay" checked>
+            </div>
+            <div class="nav-checkbox">
+                <label>Switch to next tab</label>
+                <input type="radio" onclick="requestTabClosed(this.value)" class="checkbox" name="tabclosed" value="next-tab">
+            </div>
+            <div class="nav-checkbox">
+                <label>Switch to previous tab</label>
+                <input type="radio" onclick="requestTabClosed(this.value)" class="checkbox" name="tabclosed" value="prev-tab">
+            </div>
+            <hr>
+            <label class="title">On last tab closed</label>
+            <div class="nav-checkbox">
+                <label>Show overlay</label>
+                <input type="radio" onclick="requestLastTab(this.value)" class="checkbox" name="lasttab" value="overlay" checked>
+            </div>
+            <div class="nav-checkbox">
+                <label>Open new tab</label>
+                <input type="radio" onclick="requestLastTab(this.value)" class="checkbox" name="lasttab" value="new-tab">
+            </div>
+            <div class="nav-checkbox">
+                <label>Add new tab and show overlay</label>
+                <input type="radio" onclick="requestLastTab(this.value)" class="checkbox" name="lasttab" value="new-tab-overlay">
+            </div>
+            <div class="nav-checkbox">
+                <label>Quit</label>
+                <input type="radio" onclick="requestLastTab(this.value)" class="checkbox" name="lasttab" value="quit">
+            </div>
+        </div>
+
+        <div class="container" id="window">
+            <label class="title">Window</label>
+            <label class="nav-label">Use the title bar of the operating system. Applies only when a new window was created.</label>
+            <hr>
+            <div class="nav-checkbox">
+                <label>System titlebar</label>
+                <input id="system-titlebar-checkbox" type="checkbox" onclick="requestWinControls(this.checked)">
+            </div>
+        </div>
+
+        <div class="container" id="downloads">
+            <label class="title">Downloads</label>
+            <label class="nav-label">A place to save downloaded files.</label>
+            <hr>
+            <div class="nav-checkbox">
+                <img class="theme-icon" name="about-16">
+                <label>Always ask you where to save files</label>
+                <input type="radio" onclick="requestDownloadsFolder(this.value)" class="checkbox" name="downloads-folder" value="?ask?">
+            </div>
+            <div class="nav-checkbox">
+                <img class="theme-icon" name="download-16">
+                <label>Downloads folder</label>
+                <input type="radio" onclick="requestDownloadsFolder(this.value)" class="checkbox" checked name="downloads-folder" value="?downloads?">
+            </div>
+            <div class="nav-checkbox">
+                <img class="theme-icon" name="desktop-16">
+                <label>Desktop folder</label>
+                <input type="radio" onclick="requestDownloadsFolder(this.value)" class="checkbox" checked name="downloads-folder" value="?desktop?">
+            </div>
+            <div class="nav-checkbox">
+                <img class="theme-icon" name="folder-16">
+                <label>Custom directory</label>
+                <input type="radio" id="custom-folder-radio" onclick="requestDownloadsFolder(this.value)" class="checkbox" name="downloads-folder" value="?custom-folder?">
+            </div>
+            <hr>
+            <label class="nav-label" >Custom folder:</label><label class="nav-label" id="downloads-folder">None</label><br>
+            <button class="nav-btn with-border" onclick="chooseDownloadsFolder()">
+                <img class="theme-icon" name="folder-16">
+                <label>Choose folder</label>
+            </button>
+            <hr>
+            <button class="nav-btn with-border" onclick="openDownloadsFolder()">
+                <img class="theme-icon" name="download-16">
+                <label>Open downloads folder</label>
+            </button>
+        </div>
+
+        <div class="container" id="clear-browsing-data">
+            <label class="title">Clear browsing data</label>
+            <label class="nav-label">Cleanup the local storage to free up space.</label>
+            <hr>
+            <div class="nav-checkbox">
+                <label>Cookies and other site data</label>
+                <input type="checkbox" id="clear-storage-checkbox">
+            </div>
+            <div class="nav-checkbox">
+                <label>Cached images and files</label>
+                <input type="checkbox" id="clear-cache-checkbox">
+            </div>
+            <hr>
+            <label class="nav-label" id="cache-size-label"></label><br>
+            <button class="nav-btn with-border" onclick="clearBrowsingData()">
+                <img class="theme-icon" name="delete-16">
+                <label>Clear data</label>
+            </button>
+        </div>
+        
+        <script type="text/javascript" src="../js/settings.js"></script>
+    </body>
+</html>

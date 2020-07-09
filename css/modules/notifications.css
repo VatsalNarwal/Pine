@@ -1,0 +1,104 @@
+body.blur .notif-close {
+    opacity: var(--opacity-over);
+}
+
+.notif-panel {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 999;
+    text-align: center;
+}
+
+.notif {
+    transition: 0.25s;
+    border-bottom: 1px solid var(--color-border);
+    animation-name: slide-down;
+    animation-duration: 0.25s;
+    background-color: var(--color-element);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 33px;
+    -webkit-app-region: no-drag;
+}
+
+.notif.closed {
+    transform: translateY(-40px);
+    opacity: 0;
+}
+
+.notif-container {
+    height: 32px;
+}
+
+.notif-text {
+    color: var(--color-top);
+    display: inline-block;
+    margin-right: 8px;
+    padding: 5px;
+    vertical-align: middle;
+    overflow: hidden;
+    white-space: nowrap;
+    word-break: keep-all;
+    text-overflow: ellipsis;
+    position: absolute;
+    right: 360px;
+    left: 32px;
+}
+
+.notif-icon {
+    position: absolute;
+    left: 8px;
+    top: 8px;
+}
+
+.notif-body {
+	margin: 0 24px;
+    padding: 2px;
+    text-align: left;
+}
+
+.notif-close {
+	border-radius: var(--px-radius);
+	width: 24px;
+	height: 24px;
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    background-color: transparent;
+    border: 1px solid transparent;
+    outline: none;
+    padding: 0 4px;
+}
+
+.notif-close:hover {
+    border-color: var(--color-border);
+	background-color: var(--color-second);
+}
+
+.notif-close:active {
+	background-color: var(--color-border);
+}
+
+.notif-close:focus {
+    border-color: var(--color-border);
+	box-shadow: var(--shadow-focus);
+}
+
+.notif .nav-btn {
+    height: 24px;
+}
+
+.notif .nav-btn img {
+    padding: 3px 7px;
+}
+
+.notif-buttons {
+    padding: 2px;
+    position: absolute;
+    right: 48px;
+    top: 0;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>	
+    <link rel="stylesheet" href="../css/modules/webkit.css">
+    <link rel="stylesheet" href="../css/modules/animations.css">
+    <link rel="stylesheet" href="../css/modules/input.css">
+    <link rel="stylesheet" href="../css/modules/nav-btn.css">
+    <link rel="stylesheet" href="../css/modules/tabs.css">
+    <link rel="stylesheet" href="../css/modules/find.css">
+    <link rel="stylesheet" href="../css/modules/overlay-button.css">
+    <link rel="stylesheet" href="../css/modules/notifications.css">
+    <link rel="stylesheet" href="../node_modules/dragula/dist/dragula.css">
+    <link rel="stylesheet" href="../css/browser.css">
+  </head>
+  <body>
+    <div id="drag-zone"></div>
+
+    <button id="settings-btn" class="nav-btn" onclick="requestSideMenu()" title="Menu">
+      <img name="menu-16" class="theme-icon">
+    </button>    
+
+    <div id="titlebar">
+      <button id="back-btn" class="nav-btn" title="Go back&#xARight click to show tab history" onclick="goBack()" oncontextmenu="popupTabHistory()"><img name="back-16" class="theme-icon"></button>
+      <button id="forward-btn" class="nav-btn" title="Go forward" onclick="goForward()"><img name="forward-16" class="theme-icon"></button>
+      <button id="reload-btn" class="nav-btn" title="Reload this page&#xARight click to reload ignoring cache" onclick="reload()" oncontextmenu="reloadIgnoringCache()"><img name="reload-16" class="theme-icon"></button>
+      <button id="stop-btn" class="nav-btn" title="Stop loading this page" onclick="stop()"><img name="cancel-16" class="theme-icon"></button>
+      <div class="title-bar-vr"></div>
+      <!-- <button id="info-btn" class="nav-btn" title="Website info" onclick="popupInfoContextMenu()" oncontextmenu="popupInfoContextMenu()"><img name="info-16" class="theme-icon"></button> -->
+      <div id="middle-container">
+        <div id="address-container">
+          <div id="not-secure-icon" title="Your connection to this site is not secure"><img name="warning-16" class="theme-icon"></div>
+          <div style="display: none" id="secure-icon" title="Connection is secure"><img src="../imgs/icons16/lock.png"></div>
+          <div id="search-div">
+            <label id="target-url"></label>
+            <input type="text" placeholder="Search or type a URL" id="search-input" oninput="goToSearch(this.value, this.selectionStart)" onfocus="focusSearch()">
+          </div>
+          <button id="bookmark-btn" class="nav-btn with-border" title="Bookmark this page" onclick="createBookmark()"><img name="add-bookmark-16" class="theme-icon"></button>
+          <button style="display: none" id="bookmarked-btn" class="nav-btn with-border" title="Show bookmark options for this tab"><img src="../imgs/icons16/bookmarks.png"></button>
+        </div>
+      </div>
+      <div id="find-container">
+        <div class="title-bar-vr"></div>
+        <input id="find-input" type="text" placeholder="Find in page" oninput="findNext()" onkeyup="findInputKeyUp()">
+        <button id="find-prev-btn" class="nav-btn with-border" title="Find previous" onclick="findPrev()"><img name="up-16" class="theme-icon"></button>
+        <button id="find-next-btn" class="nav-btn with-border" title="Find next" onclick="findNext()"><img name="down-16" class="theme-icon"></button>
+        <button id="find-close-btn" class="nav-btn with-border" title="Find next" onclick="closeFindPanel()"><img name="cancel-16" class="theme-icon"></button>
+      </div>
+      <div class="title-bar-vr"></div>
+      <button id="home-btn" class="nav-btn" title="Go home" onclick="goHome()" style="display: none;"><img name="home-16" class="theme-icon" oncontextmenu="popupHomePageOptions()"></button>
+      <button id="menu-btn" class="nav-btn" title="Menu" onclick="requestSideMenu()"><img name="menu-16" class="theme-icon"></button>
+    </div>
+    
+    <div class="tabman" id="tabman">
+      <button id="overlay-btn" class="overlay-button" onclick="showOverlay()" oncontextmenu="showOverlayButtonMenu()" title="Overlay"><img name="overlay-12" class="theme-icon"></button>
+      <div class="tabman-tabs" id="tabman-tabs" onmousewheel="tabsWheel(event)"></div>
+      <div class="tabman-buttons">
+        <button title="New tab" onclick="newTab()" onauxclick="newBackgroundTab(event)" ondrop="newTabDrop(event)" ondragover="prevDef(event)"><img name="create-12" class="theme-icon"></button>
+        <button title="Tabs list" onclick="showTabList()"><img name="down-12" class="theme-icon"></button>
+      </div>
+      <div id="tab-preview">
+        <label id="tab-preview-title"></label>
+        <label id="tab-preview-url"></label>
+      </div>
+      <div id="window-controls"></div>
+    </div>
+
+    <div id="notif-panel"></div>
+
+    <!-- <center id="find-panel" style="display: none;" class="hide">
+      <img name="search-16" class="theme-icon find-panel-icon">
+      <input type="text" id="find-input" placeholder="Text to find in page" onkeyup="nextFindInPage()">
+      <button class="nav-btn" onclick="previousFindInPage()">
+        <img class="theme-icon" name="up-16">
+        <label>Previous</label>
+      </button>
+      <button class="nav-btn" onclick="nextFindInPage()">
+        <img class="theme-icon" name="down-16">
+        <label>Next</label>
+      </button>
+      <button class="nav-btn close-btn" onclick="closeFindPanel()" title="Close find panel">
+        <img class="theme-icon" name="cancel-16">
+      </button>
+    </center> -->
+
+    <script type="text/javascript" src="../js/browser.js"></script>
+  </body>
+</html>

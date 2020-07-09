@@ -1,0 +1,36 @@
+.overlay-button {
+    -webkit-app-region: no-drag;
+    outline: none;
+    float: left;
+    color: var(--color-top);
+    background-color: var(--color-titlebar);
+    font-size: var(--px-font);
+    padding: 10px;
+    height: 34px;
+    border: 1px solid var(--color-border);
+    margin: -1px;
+    margin-right: 0;
+}
+
+.overlay-button img {
+    vertical-align: top;
+}
+
+.overlay-button.active {
+    border-bottom: none;
+    background-color: var(--color-back);
+}
+
+.overlay-button:hover {
+    background-color: var(--color-second);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.overlay-button:focus {
+    box-shadow: var(--shadow-focus);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.overlay-button:active {
+    border-bottom: 1px solid var(--color-border);
+}

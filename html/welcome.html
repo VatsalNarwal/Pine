@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="../css/modules/webkit.css">
+        <link rel="stylesheet" href="../css/modules/nav-btn.css">
+        <link rel="stylesheet" href="../css/modules/input.css">
+        <link rel="stylesheet" href="../css/modules/checkbox.css">
+        <link rel="stylesheet" href="../css/modules/radio.css">
+        <link rel="stylesheet" href="../css/modules/link.css">
+        <link rel="stylesheet" href="../css/modules/block-title.css">
+        <link rel="stylesheet" href="../css/welcome.css">
+    </head>
+    <body>
+        <div id="drag-zone"></div>
+
+        <div id="titlebar">
+            <img id="titlebar-icon" class="theme-icon" name="enter-16">
+            <label id="titlebar-title">Welcome</label>
+            <div id="window-controls"></div>
+        </div>
+
+        <center onmousewheel="tabsWheel(event)">
+            <div id="dots">
+                <button class="dot active" onclick="chooseSlide(0)"></button>
+                <button class="dot" onclick="chooseSlide(1)"></button>
+                <button class="dot" onclick="chooseSlide(2)"></button>
+                <button class="dot" onclick="chooseSlide(3)"></button>
+                <button class="dot" onclick="chooseSlide(4)"></button>
+                <button class="dot" onclick="chooseSlide(5)"></button>
+                <button class="dot" onclick="chooseSlide(6)"></button>
+            </div>
+            <button id="skip-btn" class="link" onclick="chooseSlide(6)" title="Skip welcome screen">Skip</button>
+        
+            <div class="tab active">
+                <div class="about-div">
+                    <button>
+                        <img class="icon" src="../imgs/icon128.png" onclick="openAppPage()" title="App page">
+                    </button>
+                    <img class="beta" src="../imgs/color48/beta.png" title="Beta">
+                </div><br>
+                <label class="subtitle">Welcome to Pine!</label>
+                <label id="version"></label><br><br>
+                <button class="link" onclick="openDeveloperPage()" title="Developer page">by Module Art</button>
+            </div>
+            <div class="tab">
+                <img src="../imgs/color48/theme.png">
+                <label class="subtitle">Theme</label>
+                <div class="tab-container">
+                    <div class="color" onclick="requestTheme('#ffffff')">
+                        <div style="background-color: #ffffff;"></div>
+                        <label>White</label>
+                    </div>
+                    <div class="color" onclick="requestTheme('#1e272e')">
+                        <div style="background-color: #1e272e;"></div>
+                        <label>Night</label>
+                    </div>
+                    <div class="color" onclick="requestTheme('#485460')">
+                        <div style="background-color: #485460;"></div>
+                        <label>Modern</label>
+                    </div>
+                </div>
+                <button class="link" onclick="moreSettings('background-color')" title="More settings">More settings</button>
+            </div>
+            <div class="tab">
+                <img src="../imgs/color48/search.png">
+                <label class="subtitle">Search engine</label>
+                <div class="tab-container">
+                    <div class="nav-checkbox">
+                        <img src="../imgs/engines/duckduckgo.png">
+                        <label>DuckDuckGo</label>
+                        <input type="radio" onclick="requestSearchEngine(this.value)" class="checkbox" name="search-engine" value="duckduckgo">
+                    </div>
+                    <div class="nav-checkbox">
+                        <img src="../imgs/engines/google.png">
+                        <label>Google</label>
+                        <input type="radio" onclick="requestSearchEngine(this.value)" class="checkbox" checked name="search-engine" value="google">
+                    </div>
+                    <div class="nav-checkbox">
+                        <img src="../imgs/engines/bing.png">
+                        <label>Bing</label>
+                        <input type="radio" onclick="requestSearchEngine(this.value)" class="checkbox" name="search-engine" value="bing">
+                    </div>
+                </div>
+                <button class="link" onclick="moreSettings('search-engine')" title="More settings">More settings</button>
+            </div>
+            <div class="tab">
+                <img src="../imgs/color48/home.png">
+                <label class="subtitle">Home</label>
+                <div class="tab-container">
+                    <input type="text" id="home-page-input" placeholder="Home page URL">
+                    <div class="nav-checkbox">
+                        <label>Show button</label>
+                        <input type="checkbox" id="home-page-checkbox" class="checkbox">
+                    </div>
+                    <div class="nav-btn" onclick="saveHomePage()">
+                        <img class="theme-icon" name="save-16">
+                        <label>Save</label>
+                    </div>
+                </div>
+                <button class="link" onclick="moreSettings('home-page')" title="More settings">More settings</button>
+            </div>
+            <div class="tab">
+                <img src="../imgs/color48/new-tab.png">
+                <label class="subtitle">New tab</label>
+                <div class="tab-container">
+                    <input type="text" id="start-page-input" placeholder="New tab page URL">
+                    <div class="nav-btn" onclick="setStartPageLikeHomePage()">
+                        <img class="theme-icon" name="home-16">
+                        <label>Use home page</label>
+                    </div>
+                    <div class="nav-btn" onclick="saveStartPage()">
+                        <img class="theme-icon" name="save-16">
+                        <label>Save</label>
+                    </div>
+                </div>
+                <button class="link" onclick="moreSettings('new-tab')" title="More settings">More settings</button>
+            </div>
+            <div class="tab">
+                <img src="../imgs/color48/bookmarks.png">
+                <label class="subtitle">Bookmarks</label>
+                <div class="tab-container">
+                    <div class="nav-checkbox">
+                        <label>Show bookmarks bar</label>
+                        <input type="checkbox" id="bookmarks-bar-checkbox" onclick="requestBookmarksBar(this.checked, null)">
+                    </div>
+                    <div class="nav-checkbox">
+                        <label>All</label>
+                        <input type="radio" onclick="requestBookmarksBar(null, 'all')" class="checkbox" name="bbar-layout" value="all">
+                    </div>
+                    <div class="nav-checkbox">
+                        <label>Icons only</label>
+                        <input type="radio" onclick="requestBookmarksBar(null, 'only-icons')" class="checkbox" name="bbar-layout" value="only-icons">
+                    </div>
+                </div>
+                <button class="link" onclick="moreSettings('bookmarks')" title="More settings">More settings</button>
+            </div>
+            <div class="tab">
+                <img src="../imgs/color48/done.png">
+                <label class="subtitle">Ready to go</label>
+                <div class="tab-container">
+                    <div class="nav-checkbox">
+                        <label>Show this dialog at startup</label>
+                        <input type="checkbox" class="checkbox" checked id="welcome-checkbox" onclick="changeWelcome(this.checked)">
+                    </div>
+                    <button class="nav-btn" id="start-btn" onclick="closeWindow()"><label class="subtitle">Get started</label></button>
+                </div>
+                <button class="link" onclick="moreSettings(null)" title="Open settings">Open settings</button>
+            </div>
+
+            <button class="disable" onclick="prevSlide()" id="prev-btn" title="Previous">
+                <img class="theme-icon" name="back-16">
+            </button>
+            <button onclick="nextSlide()" id="next-btn" title="Next">
+                <img class="theme-icon" name="forward-16">
+            </button>
+        </center>
+        <script type="text/javascript" src="../js/welcome.js"></script>
+    </body>
+</html>
