@@ -62,6 +62,7 @@ _wine_ and _mono_ must be installed for Windows builds (_macOS_)
 ```
 $ npm run build
 
+```
 
 ## Credit
 
